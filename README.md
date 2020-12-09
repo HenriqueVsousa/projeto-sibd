@@ -12,5 +12,4 @@ TODO:
     Apresentar os sites ja adicionados consoante o tema 
 
   REMINDER SECTION:
-  
   colocar reminder com a possiblidade de data de aviso
