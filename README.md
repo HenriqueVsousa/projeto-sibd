@@ -2,14 +2,22 @@
 
   Plataforma que organiza os sites favoritos.
 
-TODO:
-  weather box 
-	
-  FAV SITE SECTION :
-  
-    Retirar notas associadas ao adicionar de algum site;
-    Apresentar os sites ja adicionados consoante o tema;
+HOME.PHP :       
+        
+        weather box; H
+        reminder list scrollable com a sua data limite e com cores conforme a data do reminder; H
+        theme box com os seus sites; R
+        possibilidade de eliminar temas (sites sobrevivem no mapa sem tema associado); R
 
-  REMINDER SECTION:
-  
-  	colocar reminder com a possiblidade de data de aviso;
+	
+MAP.PHP (SUN) :
+        
+        Adicionar sites a um novo tema ou um já existente; R
+        Colocar limite ao número de temas; R
+        Adicionar reminder com a descrição e com possibilidade de data de aviso; H
+        hidden option all sections : reminder , weather H 
+
+
+USER.PHP :       
+    
+        name, email , password change ....
