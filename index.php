@@ -4,9 +4,9 @@
 ?>
 <html>
 
-	<!-- <video poster="visual/black.png" id="video" playsinline autoplay muted loop>
+	<video poster="visual/black.png" id="video" playsinline autoplay muted loop>
 	<source src="visual/Electron-Stage-Separation.mp4" type="video/mp4">
-	</video>-->
+	</video>
 
 	<head>
 	  <meta charset="utf-8">
@@ -24,14 +24,14 @@
 				echo "<p>Success</p>";
 				unset($_SESSION['account-created']);
 			}
-		/*	if($page_messages){ temporario-->estava a dar warning no meu servidor
+			if($page_messages){
 				foreach($page_messages as $txt){
 					echo "<p>".$txt."</p>";
 				}
-			}*/
+			}
 			?>
 
-	  <form action="log_footler.php" method="POST">
+	  <form action="footler_log.php" method="POST">
 	        <input type="input" class="inf" id="username" name="username" placeholder="Username" required/>
 	        <input type="password" class="inf" id="password" name="password" placeholder="Password" required/>
 

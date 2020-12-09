@@ -11,15 +11,16 @@
 ?>
 <html>
 
-<!--	<video poster="visual/black.png" id="video" playsinline autoplay muted loop>
-	<source src="visual/orbitcut.mp4" type="video/mp4">
-	</video>-->
+	<video poster="visual/black.png" id="video" playsinline autoplay muted loop>
+	<source src="visual/Orbit.mp4" type="video/mp4">
+	</video>
 
 	<head>
 		<meta charset="utf-8">
 		<link href="css/styles_header.css" rel="stylesheet">
 		<!-- <link href="css/styles_reminder.css" rel="stylesheet"> -->
 		<link href="css/styles_reminder2.css" rel="stylesheet">
+		<link href="css/styles_favsite.css" rel="stylesheet">
 		<!--<link href="css/styles_favurl.css" rel="stylesheet">-->
 	<!--	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
 	</head>
@@ -57,7 +58,7 @@ reminder classic
 -->
 
 <!-- REMINDER SECTION -->
-		<form action="note_footler.php" method="POST">
+		<form action="footler_note.php" method="POST">
 			<div draggable="true" class="sticker1">
 				<div class="bar" ></div>
 					<input type="checkbox" id="show-note">
@@ -66,6 +67,9 @@ reminder classic
 					<button type="submit" id="save-button">Save</button>
 					<textarea name="reminder"></textarea>
 			</div>
+		</form>
+<!-- FAV SITES SECTION -->
+		<form action="footler_favsite.php" method="POST">
 			<div class="sticker2">
 				<div class="bar2"></div>
 					<!--<button type="submit" id="save-button"><i class="fa fa-floppy-o"></i></button>-->
