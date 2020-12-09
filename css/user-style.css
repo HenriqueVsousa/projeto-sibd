@@ -1,0 +1,27 @@
+
+.user-header{
+  text-align:center;
+
+}
+
+.boxes{
+  height:200px;
+  width:120px;
+  float:left;
+  color: #fff;
+  background: rgba(0,0,0,0.8);
+  top:50px;
+  margin:10em;
+  border-radius:5%;
+  box-shadow: 5px 10px 18px #000;
+}
+
+
+.reminder-box{
+  margin:2em;
+
+}
+
+.graph-box{
+  margin:2em;
+}
