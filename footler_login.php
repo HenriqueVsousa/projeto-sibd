@@ -2,7 +2,6 @@
 	ob_start();
 	session_start();
 	require_once 'db_connection.php';
-	$page_messages = Array();
 
 	if( isset($_POST['submit']) ){
 
@@ -18,7 +17,8 @@
 			$_SESSION['account-connected'] = true;
 			header("Location: home.php");
 		}
-		else { array_push($page_messages, "Invalid username or password.");
+		else {
+			$_SESSION['ERROR']= true;
       header("Location: index.php");
     }
 	}

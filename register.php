@@ -1,3 +1,8 @@
+<?php
+	ob_start();
+	session_start();
+?>
+
 <html >
 <head>
   <meta charset="utf-8">
@@ -13,13 +18,20 @@
 <body>
   <div class="register_box">
     <h1 >PREPARE YOUR LAUNCH</h1>
-
+		
 		<?php
-		if($page_messages){
-			foreach($page_messages as $txt){
-				echo "<p>".$txt."</p>";
+			if(isset($_SESSION['USER'])){
+				echo 'Enter another username';
+				unset($_SESSION['USER']);
 			}
-		}
+			if(isset($_SESSION['EMAIL'])){
+				echo 'Enter another email';
+				unset($_SESSION['EMAIL']);
+			}
+			if(isset($_SESSION['USEREMAIL'])){
+				echo 'Enter another username and email';
+				unset($_SESSION['USEREMAIL']);
+			}
 		?>
 
 		<!--acrescentar oninput="return passwordValidation(this.value)" tanto para o user/mail e password como tinha antes no launchcom script e tal -->
@@ -27,10 +39,10 @@
         <input type="input" class="inf" id="username" name="username" placeholder="Username" required/>
         <input type="email" class="inf" id="email" name="email" placeholder="Email" required/>
         <input type="password" class="inf" id="password" name="password" placeholder="Password"  required/>
-        <input type="input" class="inf" id="space-name" name="space-name" placeholder="Space name" required/>
+        <input type="text" class="inf" id="spacename" name="spacename" placeholder="Space name" required/>
         <input type="text" class="inf" id="location" name="location" placeholder="Location(Optional)">
 
-        <input type="submit" name="submit" class="sel" class="sel" value="Welcome Aboard">
+        <input type="submit" name="submit" class="sel" value="Welcome Aboard">
         <input type="button" class="sel" value="Back to Login" onclick="window.location='index.php';">
     </form>
 	</div>

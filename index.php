@@ -21,14 +21,13 @@
 
 			<?php
 			if(isset($_SESSION['account-created'])){
-				echo "<p>Success</p>";
+				echo "Sucess";
 				unset($_SESSION['account-created']);
 			}
-			if($page_messages){
-				foreach($page_messages as $txt){
-					echo "<p>".$txt."</p>";
+				if(isset($_SESSION['ERROR'])){
+					echo "Invalid username or password";
+					unset($_SESSION['ERROR']);
 				}
-			}
 			?>
 
 	  <form action="footler_login.php" method="POST">
