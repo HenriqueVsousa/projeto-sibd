@@ -1,30 +1,27 @@
 /*header css*/
 .topnav {
-  /*overflow: hidden;*/
   background-color: rgba(0,0,0,0);
+  text-align: center;
 }
 
 .topnav input {
   color: #f2f2f2;
   background: rgba(0,0,0,0);
-  text-align: center;
   padding: 20px 22px;
   text-decoration: none;
   font-size: 17px;
   border: none;
   border-radius: 15px;
 }
+
 input[class="right"]{
   float: right;
-}
-
-input[class="center"]{
-  float: center;
 }
 
 input[class="left"]{
   float: left;
 }
+
 
 .topnav input:hover{
   background: rgb(29,162,255);

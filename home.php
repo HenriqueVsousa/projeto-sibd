@@ -18,11 +18,8 @@
 	<head>
 		<meta charset="utf-8">
 		<link href="css/styles_header.css" rel="stylesheet">
-		<!-- <link href="css/styles_reminder.css" rel="stylesheet"> -->
 		<link href="css/styles_reminder2.css" rel="stylesheet">
 		<link href="css/styles_favsite.css" rel="stylesheet">
-		<!--<link href="css/styles_favurl.css" rel="stylesheet">-->
-	<!--	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
 	</head>
 
 	<body>
@@ -30,32 +27,11 @@
 <!-- TOP HEADER SECTION -->
 		<div class="topnav">
 			<input type="submit" class="left" value= "<?= $_SESSION['account-username'] ?>" onclick="window.location='user-page.php';">
-			<input type="button" class="center" value="<?= $_SESSION['space-name'] ?>" onclick="window.location='graph.php';">
-			<input type="submit" class="right" value="Logout" onclick="window.location='index.php';">
+			<input type="submit" value="<?= $_SESSION['space-name'] ?>" onclick="window.location='map.php';">
+			<input type="submit" class="right" value="Logout" onclick="window.location='footler_logout.php';">
 		</div>
 
 
-
-
-<!-- reminder
-	<ul contenteditable="true">
-	  <li>Here is a fairly large bunch of words. If you want, you can edit me! Seriously, try it. Click me and type. It's pretty easy!</li>
-	</ul>
-
-reminder classic
- 	<div class="note">
-
-			<div class="title">
-				<input type="input" class="inf" placeholder="Note" value=""/>
-
-				</div>
-
-			<div class="note-text">
-			<textarea name="" id="" rows="10" class="textarea"></textarea>
-
-			</div>
-		</div>
--->
 
 <!-- REMINDER SECTION -->
 		<form action="footler_note.php" method="POST">
@@ -63,11 +39,12 @@ reminder classic
 				<div class="bar" ></div>
 					<input type="checkbox" id="show-note">
 					<label for="show-note"></label>
-					<!--<button type="submit" id="save-button"><i class="fa fa-floppy-o"></i></button>-->
+					<!--<button type="submit" id="save-button"><i class="fa fa-floppy-o"></i></button> JAVA-->
 					<button type="submit" id="save-button">Save</button>
 					<textarea name="reminder"></textarea>
 			</div>
 		</form>
+
 <!-- FAV SITES SECTION -->
 		<form action="footler_favsite.php" method="POST">
 			<div class="sticker2">
@@ -82,9 +59,6 @@ reminder classic
 					</div>
 			</div>
 		</form>
-
-
-
 
 
 
@@ -153,12 +127,5 @@ reminder classic
               </a>
             </td>
           </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
-
--->
 	</body>
 </html>

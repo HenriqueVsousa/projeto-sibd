@@ -31,7 +31,7 @@
 			}
 			?>
 
-	  <form action="footler_log.php" method="POST">
+	  <form action="footler_login.php" method="POST">
 	        <input type="input" class="inf" id="username" name="username" placeholder="Username" required/>
 	        <input type="password" class="inf" id="password" name="password" placeholder="Password" required/>
 

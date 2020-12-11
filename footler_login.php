@@ -19,7 +19,7 @@
 			header("Location: home.php");
 		}
 		else { array_push($page_messages, "Invalid username or password.");
-      header("Location: index.php"); 
+      header("Location: index.php");
     }
 	}
 ?>
