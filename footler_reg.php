@@ -2,7 +2,6 @@
 	ob_start();
 	session_start();
 	require_once 'db_connection.php';
-	$_SESSION['message']='';
 
 	if( isset($_POST['submit'] ) && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['username']) && !empty($_POST['spacename']) ){
 
@@ -43,7 +42,6 @@
 
 			/*INSERT IN MAP TABLE*/
 			$create_map -> execute(array($cleanedSpaceName,$cleanedUsername));
-			$_SESSION['spacename'] = $cleanedSpaceName;
 
 			header("Location: index.php");
 		}

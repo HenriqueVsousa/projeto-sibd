@@ -11,7 +11,7 @@
 	<head>
 	  <meta charset="utf-8">
 	  <title>Fav Launch</title>
-	  <!-- <link href="css/styles_common.css" rel="stylesheet"> -->
+	  <link href="css/styles_common.css" rel="stylesheet">
 	  <link href="css/styles_log_reg.css" rel="stylesheet">
 	</head>
 
