@@ -24,8 +24,6 @@
 }
 
 
-
-
 .sticker1 textarea {
   box-sizing: border-box;
   min-height: 100px;
@@ -62,7 +60,7 @@
   min-width: 200px;
   position: absolute;
   left: 10%;
-  top: 15%;
+  top: 30%;
   box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
 }
 

@@ -1,6 +1,7 @@
 /*header css*/
 .topnav {
   /*overflow: hidden;*/
+  text-align: center;
   background-color: rgba(0,0,0,0);
 }
 
@@ -15,6 +16,8 @@
   border-radius: 15px;
 }
 input[class="right"]{
+  position:relative;
+  top:0.1em;
   float: right;
 }
 
@@ -25,6 +28,7 @@ input[class="center"]{
 input[class="left"]{
   float: left;
 }
+
 
 .topnav input:hover{
   background: rgb(29,162,255);
