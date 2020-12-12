@@ -2,6 +2,7 @@
 .topnav {
   background-color: rgba(0,0,0,0);
   text-align: center;
+  margin-bottom: 25px;
 }
 
 .topnav input {
@@ -45,5 +46,3 @@ video {
     transform: translateX(-50%) translateY(-50%);
     transition-duration: 2s opacity;
 }
-
-/* sticky notes css */

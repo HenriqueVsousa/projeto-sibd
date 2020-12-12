@@ -1,5 +1,5 @@
 .weather-box{
-  background-color:rgba(0,0,0,.3);
+  background-color:rgba(0,0,0,0.1);
   width:300px;
   height:200px;
   float:right;
