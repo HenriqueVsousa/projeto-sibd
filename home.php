@@ -20,18 +20,18 @@
 ?>
 <html>
 
-<!--	<video poster="visual/black.png" id="video" playsinline autoplay muted loop>
-	<source src="visual/orbitcut.mp4" type="video/mp4">
-	</video>-->
+	<video poster="visual/black.png" id="video" playsinline autoplay muted loop>
+	<source src="visual/Orbit.mp4" type="video/mp4">
+	</video>
 
 	<head>
 		<meta charset="utf-8">
 		<link href="css/styles_header.css" rel="stylesheet">
-		<!-- <link href="css/styles_reminder.css" rel="stylesheet"> -->
 		<link href="css/styles_reminder2.css" rel="stylesheet">
 		<link href="css/weather_styles.css" rel="stylesheet">
 		<!--<link href="css/styles_favurl.css" rel="stylesheet">-->
 	<!--	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+		<link href="css/styles_favsite.css" rel="stylesheet">
 	</head>
 
 	<body>
@@ -45,25 +45,14 @@
 
 
 <!-- REMINDER SECTION -->
-		<form action="note_footler.php" method="POST">
+		<form action="footler_note.php" method="POST">
 			<div draggable="true" class="sticker1">
 				<div class="bar" ></div>
 					<input type="checkbox" id="show-note">
 					<label for="show-note"></label>
-					<!--<button type="submit" id="save-button"><i class="fa fa-floppy-o"></i></button>-->
+					<!--<button type="submit" id="save-button"><i class="fa fa-floppy-o"></i></button> JAVA-->
 					<button type="submit" id="save-button">Save</button>
 					<textarea name="reminder"></textarea>
-			</div>
-			<div class="sticker2">
-				<div class="bar2"></div>
-					<!--<button type="submit" id="save-button"><i class="fa fa-floppy-o"></i></button>-->
-					<button type="submit" id="save-button2">Save</button>
-					<label>Insert your favourite websites</label>
-					<input type="text" id="theme" name="theme" placeholder="theme (optional)">
-					<input type="url" id="url" name="url" placeholder="url">
-					<div class="website-reminder">
-					<textarea name="website" placeholder="Reminder(Optional)"></textarea>
-					</div>
 			</div>
 		</form>
 			<div class="weather-box">
@@ -92,5 +81,6 @@
 					<path d="M388.199 168.499l33.618-76.513-73.4 36.751z" fill="#FF8C00"/>
 				</svg>
 		</div>
+
 	</body>
 </html>

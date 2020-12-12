@@ -1,0 +1,23 @@
+# projeto-sibd
+
+  Plataforma que organiza os sites favoritos.
+
+HOME.PHP :       
+        
+        weather box; H
+        reminder list scrollable com a sua data limite e com cores conforme a data do reminder; H
+        theme box com os seus sites; R
+        possibilidade de eliminar temas (sites sobrevivem no mapa sem tema associado); R
+
+	
+MAP.PHP (SUN) :
+        
+        Adicionar sites a um novo tema ou um já existente; R
+        Colocar limite ao número de temas; R
+        Adicionar reminder com a descrição e com possibilidade de data de aviso; H
+        hidden option all sections : reminder , weather H 
+
+
+USER.PHP :       
+    
+        name, email , password change ....
