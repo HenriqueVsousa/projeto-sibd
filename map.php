@@ -4,7 +4,10 @@
 	require_once 'db_connection.php';
   require_once ('footler_auxfunc.php');
   $themes = getallthemes($_SESSION['account-username']);
-  echo $themes['name'];
+  /*foreach($themes as $row) {
+      echo $row;
+  }*/
+  echo $themes['theme.name'];
 ?>
 
 <html>
@@ -22,9 +25,21 @@
 <!-- TOP HEADER SECTION -->
 		<div class="topnav">
 			<input type="submit" class="left" value= "<?= $_SESSION['account-username'] ?>" onclick="window.location='user-page.php';">
-			<input type="button" value="home" onclick="window.location='home.php';">
+			<input type="button" value="Home" onclick="window.location='home.php';">
 			<input type="submit" class="right" value="logout" onclick="window.location='footler_logout.php';">
 		</div>
+		
+		<!-- REMINDER SECTION -->
+		<form action="footler_note.php" method="POST">
+			<div draggable="true" class="sticker1">
+				<div class="bar" ></div>
+					<input type="checkbox" id="show-note">
+					<label for="show-note"></label>
+					<!--<button type="submit" id="save-button"><i class="fa fa-floppy-o"></i></button> JAVA-->
+					<button type="submit" id="save-button">Save</button>
+					<textarea name="reminder"></textarea>
+			</div>
+		</form>
 
 <!-- FAV SITES SECTION -->
 		<form action="footler_favsite.php" method="POST">

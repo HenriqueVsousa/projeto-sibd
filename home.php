@@ -24,7 +24,7 @@
 		<link href="css/styles_header.css" rel="stylesheet">
 		<link href="css/styles_reminder2.css" rel="stylesheet">
 		<link href="css/styles_favsite.css" rel="stylesheet">
-		<link href="css/styles_weather.css" rel="stylesheet">
+		<link href="css/box-styles.css" rel="stylesheet">
 	</head>
 
 	<body>
@@ -33,20 +33,8 @@
 		<div class="topnav">
 			<input type="submit" class="left" value= "<?= $_SESSION['account-username'] ?>" onclick="window.location='user-page.php';">
 			<input type="button" value="<?=$mapname?>" onclick="window.location='map.php';">
-			<input type="submit" class="right" value="logout" onclick="window.location='footler_logout.php';">
+			<input type="submit" class="right" value="Logout" onclick="window.location='footler_logout.php';">
 		</div>
-
-<!-- REMINDER SECTION -->
-		<form action="footler_note.php" method="POST">
-			<div draggable="true" class="sticker1">
-				<div class="bar" ></div>
-					<input type="checkbox" id="show-note">
-					<label for="show-note"></label>
-					<!--<button type="submit" id="save-button"><i class="fa fa-floppy-o"></i></button> JAVA-->
-					<button type="submit" id="save-button">Save</button>
-					<textarea name="reminder"></textarea>
-			</div>
-		</form>
 
 <!-- WEATHER SECTION -->
 		<div class="weather-box">
@@ -71,6 +59,21 @@
 				<path d="M388.199 168.499l33.618-76.513-73.4 36.751z" fill="#FF8C00"/>
 			</svg>
 		</div>
+<!-- REMINDER SECTION -->
+		<div class="website-box">
+		  <div class="websites-title-box">
+			<span class="websites-title">Websites</span><br>
+		   </div>
+			<div class="websites">
+				<ul style="list-style-type:square">
+					<li class="">
+				</ul>
+			</div>
+		</div>
+<!-- MAP SECTION -->
+	<div class="map-box">
+		
+	</div>
 
 	</body>
 </html>
