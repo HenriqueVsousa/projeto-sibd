@@ -7,6 +7,13 @@ function getallthemes($user) {
   return $aux->fetchAll();
 }
 
+function getallurl($theme) {
+  global $conn;
+  $aux = $conn->prepare('SELECT site.url FROM site join theme on site.theme_name=theme.name WHERE theme.name = ? ');
+  $aux->execute(array($theme));
+  return $aux->fetchAll();
+}
+
 function getdata(){
   date_default_timezone_set('Portugal');
   return date('Y-m-d');

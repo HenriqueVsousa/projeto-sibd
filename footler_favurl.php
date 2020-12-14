@@ -8,7 +8,7 @@
 		$url = trim($_POST['url']);
 		$theme = strtolower(trim($_POST['theme']));
 		$username = $_SESSION['account-username'];
-		echo
+
 		/*$note ="SELECT count(*) FROM site join map on site.map_name=map.name left join theme on site.theme_name=theme.name WHERE map.usr ='".$_SESSION['account-username']."'";
 		$site_query=$conn->query($note);
 		$site_result=$site_query->fetchAll();*/

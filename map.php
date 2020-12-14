@@ -4,10 +4,13 @@
 	require_once 'db_connection.php';
   require_once ('footler_auxfunc.php');
   $themes = getallthemes($_SESSION['account-username']);
+<<<<<<< Updated upstream
   /*foreach($themes as $row) {
       echo $row;
   }*/
   echo $themes['theme.name'];
+=======
+>>>>>>> Stashed changes
 ?>
 
 <html>
@@ -16,8 +19,7 @@
     <meta charset="utf-8">
     <link href="css/styles_common.css" rel="stylesheet">
     <link href="css/styles_header.css" rel="stylesheet">
-    <link href="css/styles_reminder2.css" rel="stylesheet">
-    <link href="css/styles_favsite.css" rel="stylesheet">
+    <link href="css/styles_favurl.css" rel="stylesheet">
   </head>
 
 <body>
@@ -42,44 +44,66 @@
 		</form>
 
 <!-- FAV SITES SECTION -->
-		<form action="footler_favsite.php" method="POST">
-			<div class="sticker2">
-				<div class="bar2"></div>
+		<form action="footler_favurl.php" method="POST">
+			<div class="urlbox">
+				<div class="bar">
+					<?php
+					if(isset($_SESSION['website-error'])){
+						echo "Website already exists in this map";
+						unset($_SESSION['website-error']);}
+					if(isset($_SESSION['theme-error'])){
+						echo "Theme already exists in this map";
+						unset($_SESSION['theme-error']);}
+					if(isset($_SESSION['website-added'])){
+						echo "Website added.";
+						unset($_SESSION['website-added']);}
+					?>
+				</div>
 
-          <label for="theme">Insert your favourite websites</label>
-          <datalist id="categoryname">
-            <?php foreach ($themes as $themes) { ?>
-              <option value="<?=$themes[0]['name']?>"></option>
-            <?php } ?>
-          </datalist>
+					<label for="browser">Insert fav url</label>
+					<input list="themes" name="theme" id="theme">
+						<datalist id="themes">
+							<?php foreach ($themes as $theme) { ?>
+					     <option value="<?=$theme['name']?>"></option>
+              <?php } ?>
+						</datalist>
 
 					<input type="url" id="url" name="url" placeholder="url">
+
 					<!--
           <div class="website-reminder">
 					     <textarea name="website" placeholder="Reminder(Optional)"></textarea>
 					</div>
         -->
-        <button type="submit" id="save-button2">Save</button>
 
-        <?php
-        if(isset($_SESSION['website-error'])){
-          echo "Website already exists in this map";
-          unset($_SESSION['website-error']);
-        }
-        if(isset($_SESSION['theme-error'])){
-          echo "Theme already exists in this map";
-          unset($_SESSION['theme-error']);
-        }
-        if(isset($_SESSION['website-added'])){
-          echo "Website added.";
-          unset($_SESSION['website-added']);
-        }
-        ?>
-
+        	<button type="submit" id="save-button">Save</button>
 			</div>
 		</form>
 
 
+
+				<table>
+
+					<tr>
+						<th>theme</th>
+						<th> urls </th>
+					</tr>
+
+					<tr>
+						<?php foreach ($themes as $theme) { ?>
+				      <th> <?=$theme['name']?> </th>
+
+							<th>
+						<?php $sites = getallurl($theme['name']);
+							 foreach ($sites as $site){
+									echo $site['url'];
+									echo "<br>";
+						 } ?>
+						</th>
+
+					</tr>
+						<?php } ?>
+			  </table>
 
   </body>
 </html>
