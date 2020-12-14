@@ -1,0 +1,36 @@
+.weather-box{
+  background-color:rgba(0,0,0,0.1);
+  width:300px;
+  height:200px;
+  float:right;
+  padding:1em;
+  margin-top:5%;
+  margin-right:15%;
+  border:2px solid black;
+  border-radius:5%;
+  box-sizing: border-box;
+  box-shadow: 5px 10px 18px #000;
+}
+
+.time-place{
+	padding:none;
+}
+
+.today{
+	font-size:0.5em;
+}
+
+.weather-title-box{
+	border-bottom:1px solid black;
+	margin-bottom:0.4em;
+}
+
+.weather-title{
+	font-size:1.5em;
+}
+
+svg{
+	float:right;
+	transform: translate(0,-100px);
+  padding-bottom: 20px
+}
