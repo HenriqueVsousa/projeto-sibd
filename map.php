@@ -4,6 +4,7 @@
 	require_once 'db_connection.php';
   require_once ('footler_auxfunc.php');
   $themes = getallthemes($_SESSION['account-username']);
+	$mapid = getmapid();
 ?>
 
 <html>
@@ -25,31 +26,32 @@
 		</div>
 
 <!-- FAV SITES SECTION -->
-		<form action="footler_favurl.php" method="POST">
-			<div class="urlbox">
-				<div class="bar">
-					<?php
-					if(isset($_SESSION['website-error'])){
-						echo "Website already exists in this map";
-						unset($_SESSION['website-error']);}
-					if(isset($_SESSION['theme-error'])){
-						echo "Theme already exists in this map";
-						unset($_SESSION['theme-error']);}
-					if(isset($_SESSION['website-added'])){
-						echo "Website added.";
-						unset($_SESSION['website-added']);}
-					?>
-				</div>
 
-					<label for="browser">Insert fav url</label>
-					<input list="themes" name="theme" id="theme">
-						<datalist id="themes">
-							<?php foreach ($themes as $theme) { ?>
-					     <option value="<?=$theme['name']?>"></option>
-              <?php } ?>
-						</datalist>
+		<div class="urlbox">
 
-					<input type="url" id="url" name="url" placeholder="url">
+			<div class="bar">
+				<?php
+				if( isset($_SESSION['theme-url-error']) ){
+					echo 'URL already stored into '.$_SESSION['theme-try'].'theme';
+					unset($_SESSION['theme-url-error']);}
+				if( isset($_SESSION['url-added']) ){
+					echo 'URL added to '.$_SESSION['theme-try'].'theme';
+					unset($_SESSION['url-added']);}
+				if( isset($_SESSION['url-theme-added']) ){
+					echo 'URL added to created '.$_SESSION['theme-try'].'theme';
+					unset($_SESSION['url-theme-added']);}
+				?>
+			</div>
+
+			<form action="footler_favurl.php" method="POST">
+				<label for="browser">Insert fav url</label>
+				<input list="themes" name="theme" id="theme">
+					<datalist id="themes">
+						<?php foreach ($themes as $theme) { ?>
+				     <option value="<?=$theme['name']?>"></option>
+            <?php } ?>
+					</datalist>
+				<input type="url" id="url" name="url" placeholder="url">
 
 					<!--
           <div class="website-reminder">
@@ -57,34 +59,34 @@
 					</div>
         -->
 
-        	<button type="submit" id="save-button">Save</button>
-			</div>
-		</form>
+        <input type="submit" name="submit" id="save-button" value="Save">
+			</form>
+		</div>
 
 
 
-				<table>
+<!--TEST URL TABLE -->
+		<table>
+			<tr>
+				<th>theme</th>
+				<th> urls </th>
+			</tr>
+			<?php foreach ($themes as $theme) { ?>
+			<tr>
+		    <th> <?=$theme['name']?> </th>
+				<th>
+				<?php
+				$id = getthemeid($theme['name'],$mapid);
+				$sites = getallurl($id);
+					foreach ($sites as $site){
+						echo $site['url'];
+						echo "<br>";}
+				?>
+				</th>
+				<?php } ?>
+			</tr>
 
-					<tr>
-						<th>theme</th>
-						<th> urls </th>
-					</tr>
-
-					<tr>
-						<?php foreach ($themes as $theme) { ?>
-				      <th> <?=$theme['name']?> </th>
-
-							<th>
-						<?php $sites = getallurl($theme['name']);
-							 foreach ($sites as $site){
-									echo $site['url'];
-									echo "<br>";
-						 } ?>
-						</th>
-
-					</tr>
-						<?php } ?>
-			  </table>
+	  </table>
 
   </body>
 </html>

@@ -2,39 +2,91 @@
 	ob_start();
 	session_start();
 	require_once ('db_connection.php');
+	require_once ('footler_auxfunc.php');
+	global $conn;
 
 	if( isset($_POST['submit']) ){
 
-		$url = trim($_POST['url']);
-		$theme = strtolower(trim($_POST['theme']));
 		$username = $_SESSION['account-username'];
+		$mapid = getmapid();
+		$url = trim($_POST['url']);
+
+		//caso tema venha empty procura se theme_default esta stored
+		if(!($_POST['theme']) ) {
+			$theme = 'theme_default';
+			$theme_query = $conn -> prepare('SELECT count(*) FROM theme JOIN map ON theme.map_id=map.id WHERE map.usr = ? and theme.name = ?');
+			$theme_query->execute(array($username,$theme));
+			$theme_result = $theme_query->fetchColumn();
+			//encontrou tema = theme_default
+			if($theme_result == 1){
+				$themeid = getthemeid($theme,$mapid);
+				$toAddTheme = FALSE;
+			}
+			else {
+				$toAddTheme = TRUE;
+			}
+		}
+
+		//caso contratio procura-se se ja existe algum tema com esse nome
+		if( $_POST['theme'] ){
+			$theme = strtolower(trim($_POST['theme']));
+			$theme_query = $conn -> prepare('SELECT count(*) FROM theme JOIN map ON theme.map_id=map.id WHERE map.id = ? and theme.name = ?');
+			$theme_query->execute(array($mapid,$theme));
+			$theme_result = $theme_query->fetchColumn();
+			//encontrou tema = $_POST['theme']
+			if($theme_result != 0 ){
+				$themeid = getthemeid($theme,$mapid);
+				$toAddTheme = FALSE;
+			}else {
+				$toAddTheme = TRUE;
+			}
+		}
+
+		//procura dentro do tema a inserir se o url já existe
+		$site_query = $conn -> prepare('SELECT count(*) FROM site JOIN theme ON site.theme_id=theme.id JOIN map ON theme.map_id=map.id WHERE site.url = ? AND theme.id = ? AND map.id = ?');
+		$site_query->execute(array($url,$themeid,$mapid));
+		$site_result = $site_query->fetchColumn();
+		if($site_result != 0){
+			$toAddSite = FALSE;
+		}else {
+			$toAddSite = TRUE;
+		}
+
+		//URL IS ALREADY STORED INTO $THEME
+		if( $toAddTheme == FALSE && $toAddSite == FALSE ){
+			$_SESSION['theme-url-error'] = true;
+			$_SESSION['theme-try'] = $theme;
+			header("Location: map.php");
+		}
+		//URL IS ADDED TO ALREADY STORED THEME
+		else if( $toAddTheme == FALSE && $toAddSite == TRUE ){
+			$insert_url=$conn->prepare('INSERT INTO site(url,theme_id) VALUES(?,?)');
+			$insert_url->execute(array($url,$themeid));
+
+			$_SESSION['url-added']=true;
+			$_SESSION['theme-try'] = $theme;
+			header("Location: map.php");
+		}
+
+		//THEME ADD AND URL ADD TO THE THEME
+		else if( $toAddTheme == TRUE && $toAddSite == TRUE ){
+
+			$insert_theme=$conn->prepare('INSERT INTO theme(name,map_id) VALUES(?,?)');
+			$insert_theme->execute(array($theme,$mapid));
+
+			$themeid = getthemeid($theme,$mapid);
+
+			$insert_url=$conn->prepare('INSERT INTO site(url,theme_id) VALUES(?,?)');
+			$insert_url->execute(array($url,$themeid));
+
+			$_SESSION['theme-try'] = $theme;
+			$_SESSION['url-theme-added']=true;
+			header("Location: map.php");
+		}
+	}
+?>
+
 
 		/*$note ="SELECT count(*) FROM site join map on site.map_name=map.name left join theme on site.theme_name=theme.name WHERE map.usr ='".$_SESSION['account-username']."'";
 		$site_query=$conn->query($note);
 		$site_result=$site_query->fetchAll();*/
-
-		$theme_query = $conn -> prepare('SELECT count(*) FROM theme join map on theme.map_name=map.name WHERE map.usr = ? and theme.name = ? LIMIT 1');
-		$theme_query->execute(array($username,$theme));
-		$theme_result = $theme_query->fetchAll();
-
-		$site_query = $conn -> prepare("SELECT count(*) FROM site join map on site.map_name=map.name left join theme on site.theme_name=theme.name WHERE map.usr ='$username'");
-		$site_query->execute();
-		$site_result = $site_query->fetchAll();
-
-		if( isset($site_result[0]['url']) ){
-			$_SESSION['website-error'] = true;
-			header("Location: home.php");
-		}
-		else if( isset($theme_result[0]['theme']) ){
-			$_SESSION['theme-error'] = true;
-			header("Location: home.php");
-		}
-		else {
-			$insert_website=$conn->prepare('INSERT INTO site VALUES(?,?,?)');
-			$insert_website->execute(array($url,$theme,$mapname));
-
-			$_SESSION['website-added']=true;
-			header("Location: home.php");
-		}
-	}
-?>

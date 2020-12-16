@@ -1,22 +1,22 @@
 <?php
-
 function getallthemes($user) {
   global $conn;
-  $aux = $conn->prepare('SELECT theme.name FROM theme join map on theme.map_name=map.name WHERE map.usr = ? ');
+  $aux = $conn->prepare('SELECT theme.name FROM theme join map on theme.map_id=map.id WHERE map.usr = ? ');
   $aux->execute(array($user));
   return $aux->fetchAll();
 }
-
-function getallurl($theme) {
+function getthemeid($theme_name,$mapid){
   global $conn;
-  $aux = $conn->prepare('SELECT site.url FROM site join theme on site.theme_name=theme.name WHERE theme.name = ? ');
-  $aux->execute(array($theme));
-  return $aux->fetchAll();
+  $aux = $conn->prepare('SELECT theme.id FROM theme JOIN map ON theme.map_id=map.id WHERE map.id=? AND theme.name=? ');
+  $aux->execute(array($mapid,$theme_name));
+  $aix = $aux->fetchAll();
+  return $aix[0]['id'];
 }
-
-function getdata(){
-  date_default_timezone_set('Portugal');
-  return date('Y-m-d');
+function getallurl($themeid) {
+  global $conn;
+  $aux = $conn->prepare('SELECT site.url FROM site join theme on site.theme_id=theme.id WHERE theme.id = ? ');
+  $aux->execute(array($themeid));
+  return $aux->fetchAll();
 }
 function getmapname(){
   global $conn;
@@ -25,6 +25,13 @@ function getmapname(){
   $mapresult=$mapquery->fetchAll();
   return $mapresult[0]['name'];
 }
+function getmapid(){
+  global $conn;
+  $query="SELECT map.id FROM map JOIN user ON map.usr=user.username WHERE user.username='".$_SESSION['account-username']."'";
+  $mapquery=$conn->query($query);
+  $mapresult=$mapquery->fetchAll();
+  return $mapresult[0]['id'];
+}
 function getlocation(){
   global $conn;
   $query="SELECT user.location FROM user WHERE user.username='".$_SESSION['account-username']."'";
@@ -32,11 +39,8 @@ function getlocation(){
   $locationresult=$locationquery->fetchAll();
   return $locationresult[0]['location'];
 }
-
-
-
-
-
-
-
+function getdata(){
+  date_default_timezone_set('Portugal');
+  return date('Y-m-d');
+}
 ?>

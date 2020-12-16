@@ -33,8 +33,8 @@
 			header("Location: register.php");
 		}
 		else {
-			$create_account = $conn -> prepare('INSERT INTO user VALUES (? , ? , ? , ?)');
-			$create_map = $conn -> prepare('INSERT INTO map VALUES (?,?)');
+			$create_account = $conn -> prepare('INSERT INTO user(username,email,password,location) VALUES (? , ? , ? , ?)');
+			$create_map = $conn -> prepare('INSERT INTO map(name,usr) VALUES (?,?)');
 
 			/*INSERT IN USER TABLE*/
 			$create_account -> execute(array($cleanedUsername,$cleanedEmail,sha1($cleanedPassword),$cleanedLocation));

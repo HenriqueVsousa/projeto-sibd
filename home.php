@@ -46,6 +46,7 @@
 			</div>
 		</form>
 -->
+
 <!-- WEATHER SECTION -->
 		<div class="weather-box">
 			<div class="weather-title-box">
