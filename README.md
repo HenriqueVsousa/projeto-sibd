@@ -12,7 +12,7 @@ HOME.PHP :
 	
 MAP.PHP (SUN) :
         
-        Adicionar sites a um novo tema ou um já existente; R CHECK
+       	Adicionar sites a um novo tema ou um já existente; R CHECK
         Colocar limite ao número de temas; R (definir quanditdades de temas que conseguiremos expor no home.php)
         Adicionar reminder com a descrição e com possibilidade de data de aviso; H 
         hidden option all sections : reminder , weather H 
@@ -21,3 +21,4 @@ MAP.PHP (SUN) :
 USER.PHP :       
     
         name, email , password change ....
+	profile picture upload on register.php
