@@ -3,8 +3,8 @@
 	session_start();
 	require_once 'db_connection.php';
   require_once ('footler_auxfunc.php');
-  $themes = getallthemes($_SESSION['account-username']);
 	$mapid = getmapid();
+  $themes = getallthemes($mapid);
 ?>
 
 <html>

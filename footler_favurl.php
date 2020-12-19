@@ -4,18 +4,20 @@
 	require_once ('db_connection.php');
 	require_once ('footler_auxfunc.php');
 	global $conn;
+	$userid = getuserID();
+	$mapid = getmapid();
 
 	if( isset($_POST['submit']) ){
 
 		$username = $_SESSION['account-username'];
-		$mapid = getmapid();
+
 		$url = trim($_POST['url']);
 
 		//caso tema venha empty procura se theme_default esta stored
 		if(!($_POST['theme']) ) {
 			$theme = 'theme_default';
 			$theme_query = $conn -> prepare('SELECT count(*) FROM theme JOIN map ON theme.map_id=map.id WHERE map.usr = ? and theme.name = ?');
-			$theme_query->execute(array($username,$theme));
+			$theme_query->execute(array($userid,$theme));
 			$theme_result = $theme_query->fetchColumn();
 			//encontrou tema = theme_default
 			if($theme_result == 1){
