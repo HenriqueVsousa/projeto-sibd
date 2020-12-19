@@ -1,0 +1,106 @@
+.user_box{
+  width: 950px;
+  height: 680px;
+  color: #fff;
+  background: rgba(0,0,0,0.5);
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  box-sizing: border-box;
+  padding: 30px;
+  border-radius: 5%;
+  box-shadow: 5px 10px 18px #000;
+}
+
+.username_box{
+  width: 340px;
+  height: 230px;
+  color: #fff;
+  background: rgba(0,0,0,0);
+  top: 32%;
+  left: 25%;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  box-sizing: border-box;
+  padding: 20px;
+  border-radius: 5%;
+  box-shadow: 1px 5px 10px #000;
+}
+
+.pw_box{
+  width: 340px;
+  height: 280px;
+  color: #fff;
+  background: rgba(0,0,0,0);
+  top: 50%;
+  left: 75%;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  box-sizing: border-box;
+  padding: 20px;
+  border-radius: 5%;
+  box-shadow: 1px 5px 10px #000;
+}
+
+.email_box{
+  width: 340px;
+  height: 270px;
+  color: #fff;
+  background: rgba(0,0,0,0);
+  top: 75%;
+  left: 25%;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  box-sizing: border-box;
+  padding: 20px;
+  border-radius: 5%;
+  box-shadow: 1px 5px 10px #000;
+}
+h1{
+  margin: 0;
+  padding: 0 0 10px;
+  text-align: center;
+  font-size: 15px;
+}
+
+/* inf class group all camps that the user can write their information*/
+input[class="inf"]{
+  border: none;
+  border-bottom: 1px solid rgb(0, 70, 157);
+  background: transparent;
+  outline: none;
+  height: 40px;
+  width: 100%;
+  color: #fff;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+/* sel class group all type=submit e button*/
+input[class="sel"]{
+  border: none;
+  outline: none;
+  height: 40px;
+  width: 60%;
+  background: linear-gradient(to right, #000046 , #1CB5E0);
+  color:#C1C5EA;
+  border-radius: 20px;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 55px;
+}
+
+input[class="sel"]:hover{
+  cursor: pointer;
+  background: rgba(0,0,0,0);
+  color: #C1C5EA;
+}
+
+input[class="inf"]:hover{
+  cursor: text;
+  background: rgba(0,0,0,0);
+  color: #C1C5EA;
+}
