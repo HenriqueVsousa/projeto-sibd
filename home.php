@@ -9,7 +9,7 @@
 		exit;
 	}
 	$today = getdata();
-	$mapname = getmapname();
+	$mapname = getmapname(getuserID());
 	$locationame = getlocation();
 ?>
 <html>

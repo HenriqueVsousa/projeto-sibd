@@ -19,9 +19,9 @@ INSERT INTO user (username, email, password, location) VALUES ('zuble', '123@gma
 
 -- Table: map
 CREATE TABLE map (
-  id INTEGER PRIMARY KEY ASC AUTOINCREMENT,
-  name VARCHAR NOT NULL,
-  usr VARCHAR REFERENCES user (username) ON DELETE CASCADE ON UPDATE CASCADE NOT NULL
+    id   INTEGER PRIMARY KEY ASC AUTOINCREMENT,
+    name VARCHAR NOT NULL,
+    usr  VARCHAR REFERENCES user (id) ON DELETE CASCADE ON UPDATE NO ACTION NOT NULL
 );
 
 INSERT INTO map (id, name, usr) VALUES (1, 'SUN', 'zuble');
@@ -53,20 +53,19 @@ CREATE TABLE reminder(
   --reminder_site VARCHAR REFERENCES site
 );
 
--- Table: utilities
-CREATE TABLE utilities(
-  style VARCHAR PRIMARY KEY,
-  user_name VARCHAR REFERENCES user
+CREATE TABLE utilities (
+    style   VARCHAR PRIMARY KEY,
+    user_id VARCHAR REFERENCES user (id) ON DELETE NO ACTION
+                                         ON UPDATE NO ACTION
 );
 
 -- Table: weather
-CREATE TABLE weather(
-  id INTEGER PRIMARY KEY,
-  weather_style VARCHAR REFERENCES utilities,
+CREATE TABLE weather (
+  id              INTEGER PRIMARY KEY,
+  weather_style   VARCHAR REFERENCES utilities,
   min_temperature INTEGER,
-  max_temperature INTEGER CHECK(max_temperature>min_temperature),
-  humidity INTEGER
+  max_temperature INTEGER CHECK (max_temperature > min_temperature),
+  humidity        INTEGER
 );
-
 COMMIT TRANSACTION;
 PRAGMA foreign_keys = on;

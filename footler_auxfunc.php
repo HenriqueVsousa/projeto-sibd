@@ -1,4 +1,11 @@
 <?php
+function getuserID(){
+  global $conn;
+  $query="SELECT * FROM user WHERE user.username='".$_SESSION['account-username']."'";
+  $idquery=$conn->query($query);
+  $idresult=$idquery->fetchAll();
+  return $idresult[0]['id'];
+}
 function getallthemes($user) {
   global $conn;
   $aux = $conn->prepare('SELECT theme.name FROM theme join map on theme.map_id=map.id WHERE map.usr = ? ');
@@ -18,11 +25,11 @@ function getallurl($themeid) {
   $aux->execute(array($themeid));
   return $aux->fetchAll();
 }
-function getmapname(){
+function getmapname($userid){
   global $conn;
-  $query="SELECT name FROM user JOIN map ON map.usr=user.username WHERE user.username='".$_SESSION['account-username']."'";
-  $mapquery=$conn->query($query);
-  $mapresult=$mapquery->fetchAll();
+  $mapquery = $conn->prepare('SELECT * FROM map JOIN user ON map.usr=user.id WHERE user.id = ?');
+  $mapquery->execute(array($userid));
+  $mapresult = $mapquery->fetchAll();
   return $mapresult[0]['name'];
 }
 function getmapid(){
