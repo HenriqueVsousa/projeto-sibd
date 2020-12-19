@@ -20,6 +20,7 @@
 
 	<head>
 		<meta charset="utf-8">
+		<title>Fav Launch</title>
 		<link href="css/styles_common.css" rel="stylesheet">
 		<link href="css/styles_header.css" rel="stylesheet">
 		<link href="css/styles_weather.css" rel="stylesheet">
@@ -29,7 +30,7 @@
 
 <!-- TOP HEADER SECTION -->
 		<div class="topnav">
-			<input type="submit" class="left" value= "<?= $_SESSION['account-username'] ?>" onclick="window.location='user-page.php';">
+			<input type="submit" class="left" value= "<?= $_SESSION['account-username'] ?>" onclick="window.location='user.php';">
 			<input type="button" value="<?=$mapname?>" onclick="window.location='map.php';">
 			<input type="submit" class="right" value="logout" onclick="window.location='footler_logout.php';">
 		</div>
