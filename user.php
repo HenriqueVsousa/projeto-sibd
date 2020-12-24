@@ -54,9 +54,11 @@
         <form action="footler_user.php" method="POST">
               <input type="username" class="inf" id="user-new" name="user-new" placeholder="your new username" required/>
               <input type="password" class="inf" id="pw-now" name="pw-now" placeholder="your password to verify identity" required/>
-
               <input type="submit" class="sel" name="submit" value="change my username">
+
         </form>
+
+
       </div>
 
       <div class="email_box">
@@ -123,8 +125,21 @@
 
     	        <input type="submit" class="sel" name="submit" value="change my pw">
     	  </form>
-      </div>
-    </div>
+        <form action="delete-account.php" method="get">
+        <div class="delete-button">
+          <p>
+            <button id="delete" value="Delete your account">
+              <span id="text">Delete your account</span>
+            </button>
+          </p>
+
+          <div class="delete-confirmation">
+            <p>Are you sure?</p>
+          </div>
+        </div>
+      </form>
+
+
 
   </body>
 </html>

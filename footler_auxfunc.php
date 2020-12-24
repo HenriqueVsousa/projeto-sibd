@@ -27,8 +27,8 @@ function getallurl($themeid) {
 }
 function getmapname($userid){
   global $conn;
-  $mapquery = $conn->prepare('SELECT * FROM map JOIN user ON map.usr=user.id WHERE user.id = ?');
-  $mapquery->execute(array($userid));
+  $query="SELECT * FROM map JOIN user ON map.usr=user.id WHERE user.username='".$_SESSION['account-username']."'";;
+  $mapquery = $conn->query($query);
   $mapresult = $mapquery->fetchAll();
   return $mapresult[0]['name'];
 }

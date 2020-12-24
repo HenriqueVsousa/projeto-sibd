@@ -11,7 +11,10 @@
 	$today = getdata();
 	$mapname = getmapname(getuserID());
 	$locationame = getlocation();
+	$mapid = getmapid();
+  $themes = getallthemes($mapid);
 ?>
+
 <html>
 
 	<video poster="visual/black.png" id="video" playsinline autoplay muted loop>
@@ -24,6 +27,8 @@
 		<link href="css/styles_common.css" rel="stylesheet">
 		<link href="css/styles_header.css" rel="stylesheet">
 		<link href="css/styles_weather.css" rel="stylesheet">
+		<link href="css/styles_mainurl.css" rel="stylesheet">
+
 	</head>
 
 	<body>
@@ -47,6 +52,25 @@
 			</div>
 		</form>
 -->
+
+<!-- FAV URLS -->
+		<div class="urls-box">
+			<?php foreach ($themes as $theme) { ?>
+
+				<!-- <div class='theme-box'> -->
+						<h1> <?php echo $theme['name'] ?> </h1>
+							<?php
+							$id = getthemeid($theme['name'],$mapid);
+							$sites = getallurl($id);
+							foreach ($sites as $site){ ?>
+
+								<a href="<?php echo $site['url'];?>"> <?php echo $site['url'] ?> </a>
+								<br>
+							<?php } ?>
+			<!--	</div> -->
+
+			<?php } ?>
+		</div>
 
 <!-- WEATHER SECTION -->
 		<div class="weather-box">

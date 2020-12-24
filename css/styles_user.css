@@ -1,12 +1,12 @@
 .user_box{
-  width: 950px;
-  height: 680px;
+  width: 100%;
+  height: 85%;
   color: #fff;
   background: rgba(0,0,0,0.5);
-  top: 50%;
+  top: 30%;
   left: 50%;
-  position: absolute;
-  transform: translate(-50%,-50%);
+  position: relative;
+  transform: translate(-50%,-40%);
   box-sizing: border-box;
   padding: 30px;
   border-radius: 5%;
@@ -14,14 +14,14 @@
 }
 
 .username_box{
-  width: 340px;
-  height: 230px;
+  width: 30%;
+  height: 30%;
   color: #fff;
   background: rgba(0,0,0,0);
   top: 32%;
   left: 25%;
   position: absolute;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%,-90%);
   box-sizing: border-box;
   padding: 20px;
   border-radius: 5%;
@@ -29,14 +29,14 @@
 }
 
 .pw_box{
-  width: 340px;
-  height: 280px;
+  width: 30%;
+  height: 50%;
   color: #fff;
   background: rgba(0,0,0,0);
-  top: 50%;
+  top: 45%;
   left: 75%;
   position: absolute;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%,-75%);
   box-sizing: border-box;
   padding: 20px;
   border-radius: 5%;
@@ -44,14 +44,14 @@
 }
 
 .email_box{
-  width: 340px;
-  height: 270px;
+  width: 30%;
+  height: 50%;
   color: #fff;
   background: rgba(0,0,0,0);
   top: 75%;
   left: 25%;
   position: absolute;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%,-55%);
   box-sizing: border-box;
   padding: 20px;
   border-radius: 5%;
@@ -103,4 +103,30 @@ input[class="inf"]:hover{
   cursor: text;
   background: rgba(0,0,0,0);
   color: #C1C5EA;
+}
+
+
+
+
+#delete{
+  font-size: 15px;
+  position: absolute;
+  transform: translate(130%,250%);
+  width: 150px;
+  height: 40px;
+  background: rgba(255,255,255,0.7);
+  transition: background-color 0.1s;
+}
+
+#delete:hover {
+  background-color: cyan;
+}
+
+.delete-confirmation {
+  float:right;
+  display: none;
+}
+
+.delete-button:hover .delete-confirmation {
+  display: block;
 }

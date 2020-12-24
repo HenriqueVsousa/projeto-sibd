@@ -1,0 +1,40 @@
+.urls-box{
+  width: 70%;
+  height: 83%;
+  color: #fff;
+  background: rgba(0,0,0,0.5);
+  top: 22%;
+  left:37%;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  box-sizing: border-box;
+  padding: 30px;
+  border-radius: 5%;
+  box-shadow: 5px 10px 18px #000;
+  margin-top: 16%;
+}
+
+.theme-box{
+  width: 340px;
+  height: 230px;
+  color: #fff;
+  background: rgba(0,0,0,0);
+  top: 32%;
+  left: 25%;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  box-sizing: border-box;
+  padding: 20px;
+  border-radius: 5%;
+  box-shadow: 1px 5px 10px #000;
+  overflow: auto;
+}
+
+/* unvisited link */
+a:link {
+  color: white;
+}
+
+a:hover {
+  color: cyan;
+}
