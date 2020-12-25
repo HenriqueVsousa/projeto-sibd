@@ -41,6 +41,9 @@
 				if( isset($_SESSION['url-theme-added']) ){
 					echo 'URL added to created '.$_SESSION['theme-try'].' theme';
 					unset($_SESSION['url-theme-added']);}
+				if( isset($_SESSION['theme-limit']) ){
+					echo 'You cant add no more themes, sorry :(';
+					unset($_SESSION['theme-limit']);}
 				?>
 			</div>
 

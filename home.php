@@ -14,6 +14,8 @@
 	$mapid = getmapid(getuserID());
   $themes = getallthemes($mapid);
 	$reminders=getreminders();
+	$userid = getuserID();
+	$nthemes = getnumbthemes($userid);
 ?>
 
 <html>
@@ -56,19 +58,19 @@
 
 <!-- FAV URLS -->
 		<div class="urls-box">
-			<?php foreach ($themes as $theme) { ?>
+			<?php for ($i = 0; $i < $nthemes; $i++ ) {  ?>
 
-				<!-- <div class='theme-box'> -->
-						<h1> <?php echo $theme['name'] ?> </h1>
+				 <div class='theme-box<?php echo $i?>'>
+						<h1> <?php echo $themes[$i]['name'] ?> </h1>
 							<?php
-							$id = getthemeid($theme['name'],$mapid);
+							$id = getthemeid($themes[$i]['name'],$mapid);
 							$sites = getallurl($id);
 							foreach ($sites as $site){ ?>
 
-								<a href="<?php echo $site['url'];?>"> <?php echo $site['url'] ?> </a>
+								<a href="<?php echo $site['url'];?>" target="_blank"> <?php echo $site['url'] ?> </a>
 								<br>
 							<?php } ?>
-			<!--	</div> -->
+			</div>
 
 			<?php } ?>
 		</div>

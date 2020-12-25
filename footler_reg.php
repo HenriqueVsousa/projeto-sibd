@@ -35,8 +35,8 @@
 		}
 		else {
 			$create_account = $conn -> prepare('INSERT INTO user(username,email,password,location) VALUES (? , ? , ? , ?)');
-			$create_map = $conn -> prepare('INSERT INTO map(name,usr) VALUES (?,?)');
-
+			$create_map = $conn -> prepare('INSERT INTO map(name,usr,theme_number) VALUES (?,?,?)');
+			$zero = 0;
 			/*INSERT IN USER TABLE*/
 			$create_account -> execute(array($cleanedUsername,$cleanedEmail,sha1($cleanedPassword),$cleanedLocation));
 			$_SESSION['account-created'] = true;
@@ -44,7 +44,7 @@
 			/*INSERT IN MAP TABLE*/
 			$newid = getnumbusers(); // nao incrementa um pois neste momento o novo user ja esta na tabela com o valor de id mais alto que corresponde ao numero de users
 			$_SESSION['aux']= $newid;
-			$create_map -> execute(array($cleanedSpaceName,$newid));
+			$create_map -> execute(array($cleanedSpaceName,$newid,$zero));
 
 			header("Location: index.php");
 		}
