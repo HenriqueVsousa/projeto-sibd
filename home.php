@@ -9,12 +9,13 @@
 		exit;
 	}
 	$today = getdata();
-	$mapname = getmapname(getuserID());
+	$userid = getuserID();
+	$mapname = getmapname($userid);
 	$locationame = getlocation();
 	$mapid = getmapid();
   $themes = getallthemes($mapid);
 	$reminders=getreminders();
-	$userid = getuserID();
+
 	$nthemes = getnumbthemes($userid);
 ?>
 
@@ -42,19 +43,6 @@
 			<input type="button" value="<?=$mapname?>" onclick="window.location='map.php';">
 			<input type="submit" class="right" value="logout" onclick="window.location='footler_logout.php';">
 		</div>
-
-<!-- REMINDER SECTION
-		<form action="footler_note.php" method="POST">
-			<div draggable="true" class="sticker1">
-				<div class="bar" ></div>
-					<input type="checkbox" id="show-note">
-					<label for="show-note"></label>
-					<!--<button type="submit" id="save-button"><i class="fa fa-floppy-o"></i></button> JAVA
-					<button type="submit" id="save-button">Save</button>
-					<textarea name="reminder"></textarea>
-			</div>
-		</form>
--->
 
 <!-- FAV URLS -->
 		<div class="urls-box">
