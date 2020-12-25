@@ -15,11 +15,8 @@ DROP TABLE IF EXISTS reminder;
 CREATE TABLE reminder(
   id INTEGER PRIMARY KEY,
   name VARCHAR DEFAULT('Nota'),
-  note VARCHAR NOT NULL
-  -- site_number INTEGER CHECK(site_number<=20),
-  --reminder_data INTEGER,
-  --reminder_style VARCHAR REFERENCES utilities,
-  --reminder_site VARCHAR REFERENCES site
+  note VARCHAR NOT NULL,
+  usr INTEGER REFERENCES user (id) ON DELETE CASCADE ON UPDATE NO ACTION NOT NULL
 );
 
 -- Table: site
