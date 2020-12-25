@@ -13,6 +13,8 @@
 	$locationame = getlocation();
 	$mapid = getmapid();
   $themes = getallthemes($mapid);
+	$reminders=array();
+	$reminders=getreminders();
 ?>
 
 <html>
@@ -28,7 +30,7 @@
 		<link href="css/styles_header.css" rel="stylesheet">
 		<link href="css/styles_weather.css" rel="stylesheet">
 		<link href="css/styles_mainurl.css" rel="stylesheet">
-
+		<link href="css/styles_reminder.css" rel="stylesheet">
 	</head>
 
 	<body>
@@ -96,5 +98,21 @@
 			</svg>
 		</div>
 
+		<!-- Reminder section-->
+		<div class="reminder-box">
+			<?php foreach ($reminders as $reminder) { ?>
+						<h1> <?php echo $reminder['name'] ?> </h1>
+							<?php
+							$id = getthemeid($theme['name'],$mapid);
+							$sites = getallurl($id);
+							foreach ($sites as $site){ ?>
+
+								<a href="<?php echo $site['url'];?>"> <?php echo $site['url'] ?> </a>
+								<br>
+							<?php } ?>
+			<!--	</div> -->
+
+			<?php } ?>
+		</div>
 	</body>
 </html>

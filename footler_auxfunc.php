@@ -6,6 +6,13 @@ function getuserID(){
   $idresult=$idquery->fetchAll();
   return $idresult[0]['id'];
 }
+function getnumbusers(){
+  global $conn;
+  $aux = $conn->prepare('SELECT count(*) FROM user');
+  $aux->execute();
+  $auxresult = $aux->fetchColumn();
+  return $auxresult;
+}
 function getallthemes($userid) {
   global $conn;
   $aux = $conn->prepare('SELECT theme.name FROM theme join map on theme.map_id=map.id WHERE map.usr = ? ');
@@ -27,8 +34,8 @@ function getallurl($themeid) {
 }
 function getmapname($userid){
   global $conn;
-  $query="SELECT * FROM map JOIN user ON map.usr=user.id WHERE user.username='".$_SESSION['account-username']."'";;
-  $mapquery = $conn->query($query);
+  $mapquery = $conn->prepare('SELECT * FROM map JOIN user ON map.usr=user.id WHERE user.id = ?');
+  $mapquery->execute(array($userid));
   $mapresult = $mapquery->fetchAll();
   return $mapresult[0]['name'];
 }
@@ -49,5 +56,12 @@ function getlocation(){
 function getdata(){
   date_default_timezone_set('Portugal');
   return date('Y-m-d');
+}
+function getreminders(){
+  global $conn;
+  $query="SELECT reminder.name, reminder.note FROM reminder JOIN user ON reminder.usr=user.id where user.username='".$_SESSION['account-username']."'";
+  $reminderquery=$conn->query($query);
+  $reminderresult=$reminderquery->fetchAll();
+  return $reminderresult;
 }
 ?>

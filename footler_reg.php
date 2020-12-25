@@ -2,6 +2,7 @@
 	ob_start();
 	session_start();
 	require_once 'db_connection.php';
+	require_once ('footler_auxfunc.php');
 
 	if( isset($_POST['submit'] ) && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['username']) && !empty($_POST['spacename']) ){
 
@@ -41,7 +42,9 @@
 			$_SESSION['account-created'] = true;
 
 			/*INSERT IN MAP TABLE*/
-			$create_map -> execute(array($cleanedSpaceName,$cleanedUsername));
+			$newid = getnumbusers(); // nao incrementa um pois neste momento o novo user ja esta na tabela com o valor de id mais alto que corresponde ao numero de users
+			$_SESSION['aux']= $newid;
+			$create_map -> execute(array($cleanedSpaceName,$newid));
 
 			header("Location: index.php");
 		}

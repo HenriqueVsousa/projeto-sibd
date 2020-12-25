@@ -61,6 +61,14 @@
 			</form>
 
 		</div>
+<form action="footler_reminder.php" method="POST">
+		<div class="reminderbox">
+				<label for="reminder">Insert reminder</label>
+				<input list="reminder-name" name="reminder-name" id="reminder-name" placeholder="reminder name">
+				<input list="reminder-description" name="reminder-description" id="reminder-description" placeholder="description name">
+				<input type="submit" name="submit" id="save-button-reminder" value="Save">
+		</div>
+</form>
 
 
 

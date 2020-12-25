@@ -86,6 +86,7 @@
 			header("Location: map.php");
 		}
 	}
+	header("Location: map.php");
 ?>
 
 

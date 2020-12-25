@@ -8,6 +8,7 @@
   position: relative;
   transform: translate(-50%,-40%);
   box-sizing: border-box;
+  border:2px solid black;
   padding: 30px;
   border-radius: 5%;
   box-shadow: 5px 10px 18px #000;
