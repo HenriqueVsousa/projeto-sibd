@@ -19,6 +19,12 @@ function getallthemes($userid) {
   $aux->execute(array($userid));
   return $aux->fetchAll();
 }
+function getnumbthemes($userid){
+  global $conn;
+  $aux = $conn->prepare('SELECT count(*) FROM theme join map on theme.map_id=map.id WHERE map.usr = ? ');
+  $aux->execute(array($userid));
+  return $aux->fetchColumn();
+}
 function getthemeid($theme_name,$mapid){
   global $conn;
   $aux = $conn->prepare('SELECT theme.id FROM theme JOIN map ON theme.map_id=map.id WHERE map.id=? AND theme.name=? ');

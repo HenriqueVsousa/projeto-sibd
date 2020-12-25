@@ -1,40 +1,154 @@
 .urls-box{
-  width: 70%;
-  height: 83%;
-  background: rgba(255,255,255,0.5);
-  top: 22%;
-  left:37%;
-  position: absolute;
-  transform: translate(-50%,-50%);
-  padding: 30px;
-  border:2px solid black;
-  border-radius:5%;
-  box-sizing: border-box;
-  box-shadow: 5px 10px 18px #000;
-  margin-top: 16%;
-}
-
-.theme-box{
-  width: 340px;
-  height: 230px;
+  width: 80%;
+  height: 85%;
   color: #fff;
-  background: rgba(0,0,0,0);
-  top: 32%;
-  left: 25%;
-  position: absolute;
-  transform: translate(-50%,-50%);
-  box-sizing: border-box;
-  padding: 20px;
+  background: rgba(255,255,255,0.3);
+  border:2px solid black;
   border-radius: 5%;
-  box-shadow: 1px 5px 10px #000;
+  top: 10%;
+  left: 2%;
+  position: absolute;
+  box-sizing: border-box;
+  padding: 30px;
+  box-shadow: 5px 10px 18px #000;
+  overflow-y: auto;
+}
+
+.theme-box0{
+  width: 30%;
+  height: 25%;
+  color: #fff;
+  background: rgba(255,255,255,0.1);
+  top: 5%;
+  left: 1%;
+  position: absolute;
+  box-sizing: border-box;
+  border-radius: 2%;
+  box-shadow: 1px 5px 7px #000;
   overflow: auto;
+  margin: 10px;
+}
+.theme-box1{
+  width: 30%;
+  height: 25%;
+  color: #fff;
+  background: rgba(255,255,255,0.1);
+  top: 5%;
+  left: 34%;
+  position: absolute;
+  box-sizing: border-box;
+  border-radius: 2%;
+  box-shadow: 1px 5px 7px #000;
+  overflow: auto;
+  margin: 10px;
+}
+.theme-box2{
+  width: 30%;
+  height: 25%;
+  color: #fff;
+  background: rgba(255,255,255,0.1);
+  top: 5%;
+  left: 67%;
+  position: absolute;
+  box-sizing: border-box;
+  border-radius: 2%;
+  box-shadow: 1px 5px 7px #000;
+  overflow: auto;
+  margin: 10px;
 }
 
-/* unvisited link */
+.theme-box3{
+  width: 30%;
+  height: 25%;
+  color: #fff;
+  background: rgba(255,255,255,0.1);
+  top: 35%;
+  left: 1%;
+  position: absolute;
+  box-sizing: border-box;
+  border-radius: 2%;
+  box-shadow: 1px 5px 7px #000;
+  overflow: auto;
+  margin: 10px;
+}
+.theme-box4{
+  width: 30%;
+  height: 25%;
+  color: #fff;
+  background: rgba(255,255,255,0.1);
+  top: 35%;
+  left: 34%;
+  position: absolute;
+  box-sizing: border-box;
+  border-radius: 2%;
+  box-shadow: 1px 5px 7px #000;
+  overflow: auto;
+  margin: 10px;
+}
+.theme-box5{
+  width: 30%;
+  height: 25%;
+  color: #fff;
+  background: rgba(255,255,255,0.1);
+  top: 35%;
+  left: 67%;
+  position: absolute;
+  box-sizing: border-box;
+  border-radius: 2%;
+  box-shadow: 1px 5px 7px #000;
+  overflow: auto;
+  margin: 10px;
+}
+.theme-box6{
+  width: 30%;
+  height: 25%;
+  color: #fff;
+  background: rgba(255,255,255,0.1);
+  top: 66%;
+  left: 1%;
+  position: absolute;
+  box-sizing: border-box;
+  border-radius: 2%;
+  box-shadow: 1px 5px 7px #000;
+  overflow: auto;
+  margin: 10px;
+}
+.theme-box7{
+  width: 30%;
+  height: 25%;
+  color: #fff;
+  background: rgba(255,255,255,0.1);
+  top: 66%;
+  left: 34%;
+  position: absolute;
+  box-sizing: border-box;
+  border-radius: 2%;
+  box-shadow: 1px 5px 7px #000;
+  overflow: auto;
+  margin: 10px;
+}
+.theme-box8{
+  width: 30%;
+  height: 25%;
+  color: #fff;
+  background: rgba(255,255,255,0.1);
+  top: 66%;
+  left: 67%;
+  position: absolute;
+  box-sizing: border-box;
+  border-radius: 2%;
+  box-shadow: 1px 5px 7px #000;
+  overflow: auto;
+  margin: 10px;
+}
+h1{
+  margin-left: 3%;
+  font-size: 18px;
+}
 a:link {
-  color: white;
+  color: black;
+  padding-left: 2%;
 }
-
 a:hover {
   color: cyan;
 }
