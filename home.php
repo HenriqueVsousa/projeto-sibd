@@ -13,7 +13,6 @@
 	$locationame = getlocation();
 	$mapid = getmapid();
   $themes = getallthemes($mapid);
-	$reminders=array();
 	$reminders=getreminders();
 ?>
 
@@ -100,19 +99,14 @@
 
 		<!-- Reminder section-->
 		<div class="reminder-box">
-			<?php foreach ($reminders as $reminder) { ?>
-						<h1> <?php echo $reminder['name'] ?> </h1>
-							<?php
-							$id = getthemeid($theme['name'],$mapid);
-							$sites = getallurl($id);
-							foreach ($sites as $site){ ?>
+		<?php
+				echo "<table>";
+					foreach($reminders as $reminder){
+						echo "<tr><th>" .$reminder['name']. "</th></tr><tr><td>" .$reminder['note']. "</td></tr>";
+					}
+				echo "</table>";
+				?>
 
-								<a href="<?php echo $site['url'];?>"> <?php echo $site['url'] ?> </a>
-								<br>
-							<?php } ?>
-			<!--	</div> -->
-
-			<?php } ?>
 		</div>
 	</body>
 </html>
