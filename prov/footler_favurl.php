@@ -5,7 +5,8 @@
 	require_once ('footler_auxfunc.php');
 	global $conn;
 	$userid = getuserID();
-	$mapid = getmapid($userid);
+	$mapid = getmapid();
+	$nthemes = getnumbthemes($userid);
 
 	if( isset($_POST['submit']) ){
 
@@ -71,13 +72,21 @@
 		}
 
 		//THEME ADD AND URL ADD TO THE THEME
-		else if( $toAddTheme == TRUE && $toAddSite == TRUE ){
 
+			if($nthemes == 9 ){
+				$_SESSION['theme-limit'] = TRUE;
+				$_SESSION['aux'] = $nthemes;
+				header("Location: map.php");
+			}
+			else if( $toAddTheme == TRUE && $toAddSite == TRUE ){
 			$insert_theme=$conn->prepare('INSERT INTO theme(name,map_id) VALUES(?,?)');
 			$insert_theme->execute(array($theme,$mapid));
 
-			$themeid = getthemeid($theme,$mapid);
+			$newnthemes = $nthemes + 1 ;
+			$update_theme_number=$conn->prepare('UPDATE map SET theme_number = ? where map.id = ?');
+			$update_theme_number->execute(array($newnthemes,$mapid));
 
+			$themeid = getthemeid($theme,$mapid);
 			$insert_url=$conn->prepare('INSERT INTO site(url,theme_id) VALUES(?,?)');
 			$insert_url->execute(array($url,$themeid));
 
@@ -86,7 +95,6 @@
 			header("Location: map.php");
 		}
 	}
-	header("Location: map.php");
 ?>
 
 

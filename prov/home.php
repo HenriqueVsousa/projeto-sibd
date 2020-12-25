@@ -11,9 +11,11 @@
 	$today = getdata();
 	$mapname = getmapname(getuserID());
 	$locationame = getlocation();
-	$mapid = getmapid(getuserID());
+	$mapid = getmapid();
   $themes = getallthemes($mapid);
 	$reminders=getreminders();
+	$userid = getuserID();
+	$nthemes = getnumbthemes($userid);
 ?>
 
 <html>
@@ -41,34 +43,22 @@
 			<input type="submit" class="right" value="logout" onclick="window.location='footler_logout.php';">
 		</div>
 
-<!-- REMINDER SECTION
-		<form action="footler_note.php" method="POST">
-			<div draggable="true" class="sticker1">
-				<div class="bar" ></div>
-					<input type="checkbox" id="show-note">
-					<label for="show-note"></label>
-					<!--<button type="submit" id="save-button"><i class="fa fa-floppy-o"></i></button> JAVA
-					<button type="submit" id="save-button">Save</button>
-					<textarea name="reminder"></textarea>
-			</div>
-		</form>
--->
 
 <!-- FAV URLS -->
 		<div class="urls-box">
-			<?php foreach ($themes as $theme) { ?>
+			<?php for ($i = 0; $i < $nthemes; $i++ ) {  ?>
 
-				<!-- <div class='theme-box'> -->
-						<h1> <?php echo $theme['name'] ?> </h1>
+				 <div class='theme-box<?php echo $i?>'>
+						<h1> <?php echo $themes[$i]['name'] ?> </h1>
 							<?php
-							$id = getthemeid($theme['name'],$mapid);
+							$id = getthemeid($themes[$i]['name'],$mapid);
 							$sites = getallurl($id);
 							foreach ($sites as $site){ ?>
 
-								<a href="<?php echo $site['url'];?>"> <?php echo $site['url'] ?> </a>
+								<a href="<?php echo $site['url'];?>" target="_blank"> <?php echo $site['url'] ?> </a>
 								<br>
 							<?php } ?>
-			<!--	</div> -->
+			</div>
 
 			<?php } ?>
 		</div>
@@ -97,8 +87,6 @@
 			</svg>
 		</div>
 
-		<!-- Reminder section-->
-
 		<div class="reminder-box">
 		<?php
 				echo "<table>";
@@ -112,5 +100,6 @@
 
 				?>
 		</div>
+
 	</body>
 </html>
