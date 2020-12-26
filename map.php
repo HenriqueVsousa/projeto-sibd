@@ -15,6 +15,7 @@
     <link href="css/styles_common.css" rel="stylesheet">
     <link href="css/styles_header.css" rel="stylesheet">
     <link href="css/styles_favurl.css" rel="stylesheet">
+		<link href="css/styles_reminder.css" rel="stylesheet">
   </head>
 
 <body>
@@ -57,9 +58,6 @@
             <?php } ?>
 					</datalist>
 				<input type="url" id="url" name="url" placeholder="url">
-        <!--<div class="website-reminder">
-					     <textarea name="website" placeholder="Reminder(Optional)"></textarea>
-					</div> -->
         <input type="submit" name="submit" id="save-button" value="Save">
 			</form>
 

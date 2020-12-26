@@ -9,12 +9,13 @@
 		exit;
 	}
 	$today = getdata();
-	$mapname = getmapname(getuserID());
+	$userid = getuserID();
+	$mapname = getmapname($userid);
 	$locationame = getlocation();
 	$mapid = getmapid(getuserID());
   $themes = getallthemes($mapid);
 	$reminders=getreminders();
-	$userid = getuserID();
+
 	$nthemes = getnumbthemes($userid);
 ?>
 
@@ -42,19 +43,6 @@
 			<input type="button" value="<?=$mapname?>" onclick="window.location='map.php';">
 			<input type="submit" class="right" value="logout" onclick="window.location='footler_logout.php';">
 		</div>
-
-<!-- REMINDER SECTION
-		<form action="footler_note.php" method="POST">
-			<div draggable="true" class="sticker1">
-				<div class="bar" ></div>
-					<input type="checkbox" id="show-note">
-					<label for="show-note"></label>
-					<!--<button type="submit" id="save-button"><i class="fa fa-floppy-o"></i></button> JAVA
-					<button type="submit" id="save-button">Save</button>
-					<textarea name="reminder"></textarea>
-			</div>
-		</form>
--->
 
 <!-- FAV URLS -->
 		<div class="urls-box">
@@ -105,9 +93,10 @@
 		<?php
 				echo "<table>";
 				echo "<form action='delete_reminder.php' method='POST'>";
-					foreach($reminders as $reminder){
-						echo "<tr><th>" .$reminder['name']. "</th></tr><tr><td>" .$reminder['note']. "</td></tr>";
-						echo "<input type='submit' name='" .$reminder['note']. "' value='Delete'>";
+				echo"<tr><td>Name</td>Note<tr></td>";
+					for($i=0;$i<sizeof($reminders);$i++){
+						echo "<tr><td>" .$reminders[$i]['name']. "</td></td>" .$reminders[$i]['note']. "</td>";
+					//	echo "<input type='submit' name='" .$reminders[$i]['note']. "' value='Delete'>";
 					}
 					echo "</form>";
 				echo "</table>";

@@ -2,8 +2,9 @@
   ob_start();
   session_start();
 	require_once ('db_connection.php');
-    echo"<h2>".$_POST['$reminder']."</h2>";
-    $reminderquery="DELETE FROM reminder JOIN user on reminder.usr=user.id WHERE reminder.note='".$_POST['$reminder']."'";
+
+    $reminderquery="DELETE FROM reminder WHERE reminder.note='".$_POST['$reminders']."' AND reminder.usr='".$_SESSION['account-username']."'";
     $reminderresult=$conn->query($reminderquery);
-    header("Location:home.php");
+    var_dump($_POST['$reminders']);
+    //header("Location:home.php");
 ?>
