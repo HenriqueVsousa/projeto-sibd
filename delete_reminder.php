@@ -2,9 +2,12 @@
   ob_start();
   session_start();
 	require_once ('db_connection.php');
-
-    $reminderquery="DELETE FROM reminder WHERE reminder.note='".$_POST['$reminders']."' AND reminder.usr='".$_SESSION['account-username']."'";
+  require_once ('footler_auxfunc.php');
+    $post=$_POST['sequence'];
+    $reminder=$_SESSION['reminders'][$post];
+    $userid=getuserID();
+    $reminderquery="DELETE FROM reminder WHERE reminder.note='".$reminder['note']."' AND reminder.usr='".$userid."'";
     $reminderresult=$conn->query($reminderquery);
-    var_dump($_POST['$reminders']);
-    //header("Location:home.php");
+
+    header("Location:home.php");
 ?>
