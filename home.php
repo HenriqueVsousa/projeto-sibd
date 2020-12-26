@@ -93,11 +93,15 @@
 		<?php
 			echo "<table>";
 				echo "<form action='delete_reminder.php' method='POST'>";
-					echo"<tr><th scope='col'>Name</th><th scope='col'>Note</th></td>";
+					echo"<tr><th scope='col'>Name</th><th scope='col'>Note</th><th>Date</th><th>Erase</th>";
 					for($i=0;$i<sizeof($reminders);$i++){
-						echo "<tr><td>" .$reminders[$i]['name']. "</td><td>" .$reminders[$i]['note']. "</td>";
+						if($reminders[$i]["tme"] < date("Y-m-d")){
+								$var="expired";
+						}else{
+							$var="valid";
+						}
+						echo "<tr><td>" .$reminders[$i]['name']. "</td><td>" .$reminders[$i]['note']. "</td><td>" .$reminders[$i]['tme']. "</td><td><input type='submit' value='Delete'></td></tr>";
 						echo "<input type='hidden' name='sequence' value='$i'>";
-						echo "<input type='submit' value='Delete'>";
 					}
 					$_SESSION['reminders']=$reminders;
 					echo "</form>";

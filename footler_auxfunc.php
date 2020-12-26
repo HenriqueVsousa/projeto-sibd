@@ -65,7 +65,7 @@ function getdata(){
 }
 function getreminders(){
   global $conn;
-  $query="SELECT reminder.name, reminder.note FROM reminder JOIN user ON reminder.usr=user.id where user.username='".$_SESSION['account-username']."'";
+  $query="SELECT reminder.name, reminder.note, reminder.tme FROM reminder JOIN user ON reminder.usr=user.id where user.username='".$_SESSION['account-username']."'";
   $reminderquery=$conn->query($query);
   $reminderresult=$reminderquery->fetchAll();
   return $reminderresult;
