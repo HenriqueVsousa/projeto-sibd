@@ -4,6 +4,7 @@
   text-align: center;
   margin-bottom: 25px;
   padding:1px;
+  margin-top: 10px;
 }
 
 .topnav input {
@@ -13,6 +14,9 @@
   font-size: 17px;
   border: none;
   border-radius: 15px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 10px;
 }
 
 input[class="right"]{
@@ -25,9 +29,10 @@ input[class="left"]{
 
 
 .topnav input:hover{
-  background: rgb(29,162,255);
-  background: radial-gradient(circle, rgba(29,162,255,1) 0%, rgba(107,219,255,1) 40%, rgba(202,251,255,1) 71%, rgba(246,247,249,1) 100%);
-  border-radius: 15px;
+  background: rgb(0,243,255);
+  background: radial-gradient(circle, rgba(0,243,255,1) 0%, rgba(126,249,255,1) 27%, rgba(211,251,255,1) 59%);
+  border-radius: 30%;
+  border: none;
   box-shadow: 0 0 5px #ffffff,
               0 0 25px #ffffff,
               0 0 50px #ffffff,
