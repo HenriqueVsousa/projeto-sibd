@@ -15,8 +15,7 @@
     <link href="css/styles_common.css" rel="stylesheet">
     <link href="css/styles_header.css" rel="stylesheet">
     <link href="css/styles_favurl.css" rel="stylesheet">
-		<link href="css/styles_reminder.css" rel="stylesheet">
-  </head>
+	</head>
 
 <body>
 
@@ -27,11 +26,9 @@
 			<input type="submit" class="right" value="logout" onclick="window.location='footler_logout.php';">
 		</div>
 
-<!-- FAV SITES SECTION -->
-
+<!-- FAV SITES ADD SECTION -->
 		<div class="urlbox">
-
-			<div class="bar">
+			<div class="urlbar">
 				<?php
 				if( isset($_SESSION['theme-url-error']) ){
 					echo 'URL already stored into '.$_SESSION['theme-try'].' theme';
@@ -60,18 +57,32 @@
 				<input type="url" id="url" name="url" placeholder="url">
         <input type="submit" name="submit" id="save-button" value="Save">
 			</form>
-
 		</div>
-<form action="footler_reminder.php" method="POST">
+
+<!-- REMINDER ADD SECTION -->
 		<div class="reminderbox">
-				<label for="reminder">Insert reminder</label>
-				<input list="reminder-name" name="reminder-name" id="reminder-name" placeholder="reminder name">
-				<input list="reminder-description" name="reminder-description" id="reminder-description" placeholder="description name">
-				<input type="date" name="reminder-date">
-				<input type="submit" name="submit" id="save-button-reminder" value="Save">
-		</div>
-</form>
+				<div class="reminderbar">
+					<?php
+					if( isset($_SESSION['desc-error']) ){
+						echo 'Description is empty, fill it with something';
+						unset($_SESSION['desc-error']);}
+					if( isset($_SESSION['date-error']) ){
+						echo 'The past cant be reach, insert a future date :)';
+						unset($_SESSION['date-error']);}
+					if( isset($_SESSION['add']) ){
+						echo 'Sucess saving the reminder with the name '.$_SESSION['add-name'].'!';
+						unset($_SESSION['add']);}
+					?>
+				</div>
 
+				<form action="footler_reminder.php" method="POST">
+					<label for="reminder">Insert reminder</label>
+					<input list="reminder-name" name="reminder-name" id="reminder-name" placeholder="reminder name">
+					<input list="reminder-description" name="reminder-description" id="reminder-description" placeholder="description name">
+					<input type="date" name="reminder-date">
+					<input type="submit" name="submit" id="save-button" value="Save">
+				</form>
+		</div>
 
 
 <!--TEST URL TABLE -->
@@ -94,7 +105,6 @@
 				</th>
 				<?php } ?>
 			</tr>
-
 	  </table>
 
   </body>

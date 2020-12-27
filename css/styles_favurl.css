@@ -8,8 +8,17 @@
   top: 50%;
   box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
 }
-
-.urlbox .bar {
+.reminderbox {
+  padding-top: 20px;
+  background: rgba(0,0,0,0);
+  min-height: 40px;
+  min-width: 200px;
+  position: absolute;
+  left: 50%;
+  top: 28%;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+}
+.urlbox .urlbar {
   position: absolute;
   top: 0;
   left: 0;
@@ -18,9 +27,32 @@
   background: rgb(80,56,32);
   background: linear-gradient(90deg, rgba(80,56,32,1) 0%, rgba(105,51,16,1) 31%, rgba(140,90,36,1) 58%, rgba(127,73,23,1) 73%, rgba(92,63,22,1) 100%);
 }
-
+.reminderbox .reminderbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 100%;
+  background: rgb(80,56,32);
+  background: linear-gradient(90deg, rgba(80,56,32,1) 0%, rgba(105,51,16,1) 31%, rgba(140,90,36,1) 58%, rgba(127,73,23,1) 73%, rgba(92,63,22,1) 100%);
+}
 .urlbox:hover{
   z-index: 1;
+}
+.reminderbox:hover{
+  z-index: 1;
+}
+
+table, th, td {
+  border: 1px solid black;
+  color: #fafafa;
+  border-collapse: collapse;
+  text-align: left;
+  margin-top: 5%;
+  margin-left: 10%;
+}
+th, td {
+  padding: 15px;
 }
 
 #save-button{
@@ -31,7 +63,6 @@
   margin: 4px  4px  4px  4px;
   border: none;
 }
-
 #save-button:hover{
   cursor: pointer;
   background: rgb(29,162,255);
@@ -41,15 +72,4 @@
               0 0 25px #ffffff,
               0 0 50px #ffffff,
               0 0 100px #ffffff;
-}
-
-table, th, td {
-  border: 1px solid black;
-  color: #fafafa;
-  border-collapse: collapse;
-  text-align: left;
-}
-
-th, td {
-  padding: 15px;
 }

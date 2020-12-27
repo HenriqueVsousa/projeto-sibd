@@ -124,6 +124,6 @@
 				header("Location: user.php");
 				break;
 			}
-
+			
 	}
 ?>
