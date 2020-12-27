@@ -48,6 +48,12 @@
 			<?php for ($i = 0; $i < $nthemes; $i++ ) {  ?>
 
 				 <div class='theme-box<?php echo $i?>'>
+
+					 <form action="del_thm.php" method="POST">
+	               <input type="submit" class="close" name="submit" value="delete theme <?php echo $i?>" />
+	         </form>
+
+
 						<h1> <?php echo $themes[$i]['name'] ?> </h1>
 							<?php
 							$id = getthemeid($themes[$i]['name'],$mapid);
@@ -99,7 +105,7 @@
 						}else{
 							$var="valid";
 						}
-						echo "<tr><td>" .$reminders[$i]['name']. "</td><td>" .$reminders[$i]['note']. "</td><td>" .$reminders[$i]['tme']. "</td><td><input type='submit' value='Delete'></td></tr>";
+						echo "<tr><td>" .$reminders[$i]['name']. "</td><td>" .$reminders[$i]['note']. "</td><td>" .$reminders[$i]['tme']. "</td><td><input type='submit' value='delete reminder'></td></tr>";
 						echo "<input type='hidden' name='sequence' value='$i'>";
 					}
 					$_SESSION['reminders']=$reminders;

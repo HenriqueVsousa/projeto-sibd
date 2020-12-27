@@ -4,7 +4,8 @@
   require_once ('db_connection.php');
   require_once ('footler_auxfunc.php');
   global $conn;
-  $userid=getUserID();
+
+  $userid = getuserID($_SESSION['account-username']);
 
   //se não apresentar nome então vai ser atribuído o nome "Nota"
   if(!($_POST['reminder-description'])){
@@ -25,7 +26,7 @@
   }else{
     $time=$_POST['reminder-date'];
     $create_reminder=$conn->prepare('INSERT INTO reminder (name,note,tme,usr) VALUES (?,?,?,?)');
-    $create_reminder->execute(array($reminder_name, $reminder_description,$time,getuserID()));
+    $create_reminder->execute(array($reminder_name, $reminder_description,$time,$userid));
     $_SESSION['add'] = true;
     $_SESSION['add-name'] = $reminder_name;
     header("location: map.php");

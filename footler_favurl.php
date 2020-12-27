@@ -5,6 +5,8 @@
 	require_once ('footler_auxfunc.php');
 	global $conn;
 	$mapid = getmapid();
+	$userid = getuserID($_SESSION['account-username']);
+	$nthemes = getnumbthemes($userid);
 
 	if( isset($_POST['submit']) ){
 
