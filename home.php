@@ -15,7 +15,6 @@
 	$mapid = getmapid(getuserID());
   $themes = getallthemes($mapid);
 	$reminders=getreminders();
-
 	$nthemes = getnumbthemes($userid);
 ?>
 
@@ -58,8 +57,8 @@
 								<a href="<?php echo $site['url'];?>" target="_blank"> <?php echo $site['url'] ?> </a>
 								<br>
 							<?php } ?>
-			</div>
-
+					</div>
+					
 			<?php } ?>
 		</div>
 

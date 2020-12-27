@@ -125,21 +125,20 @@
 
     	        <input type="submit" class="sel" name="submit" value="change my pw">
     	  </form>
-        <form action="delete-account.php" method="get">
-        <div class="delete-button">
-          <p>
-            <button id="delete" value="Delete your account">
-              <span id="text">Delete your account</span>
-            </button>
-          </p>
+      </div>
 
-          <div class="delete-confirmation">
-            <p>Are you sure?</p>
-          </div>
-        </div>
-      </form>
+      <div class="delete_box">
 
-
+        <?php
+        if(isset($_SESSION['text'])){
+          echo "delete";
+          unset($_SESSION['text']);
+        }
+        ?>
+        <form action="delete_account.php" method="POST">
+              <button class="del"> <span>Delete your account</span> </button>
+        </form>
+      </div>
 
   </body>
 </html>

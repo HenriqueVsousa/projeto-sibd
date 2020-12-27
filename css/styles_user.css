@@ -1,12 +1,12 @@
 .user_box{
-  width: 100%;
+  width: 82%;
   height: 85%;
   color: #fff;
   background: rgba(0,0,0,0.5);
   top: 30%;
   left: 50%;
   position: relative;
-  transform: translate(-50%,-40%);
+  transform: translate(-50%,-35%);
   box-sizing: border-box;
   border:2px solid black;
   padding: 30px;
@@ -16,7 +16,7 @@
 
 .username_box{
   width: 30%;
-  height: 30%;
+  height: 25%;
   color: #fff;
   background: rgba(0,0,0,0);
   top: 32%;
@@ -31,7 +31,7 @@
 
 .pw_box{
   width: 30%;
-  height: 50%;
+  height: 32%;
   color: #fff;
   background: rgba(0,0,0,0);
   top: 45%;
@@ -46,7 +46,7 @@
 
 .email_box{
   width: 30%;
-  height: 50%;
+  height: 32%;
   color: #fff;
   background: rgba(0,0,0,0);
   top: 75%;
@@ -58,11 +58,53 @@
   border-radius: 5%;
   box-shadow: 5px 10px 18px #000;
 }
+
+.delete_box{
+  width: 30%;
+  color: #fff;
+  top: 70%;
+  left: 75%;
+  position: absolute;
+  transform: translate(-50%,-40%);
+  box-sizing: border-box;
+  padding: 20px;
+  border-radius: 5%;
+  box-shadow: 5px 10px 18px #000;
+}
+
 h1{
   margin: 0;
   padding: 0 0 10px;
   text-align: center;
   font-size: 15px;
+}
+
+button.del {
+  border: none;
+  outline: none;
+  height: 40px;
+  width: 60%;
+  background: linear-gradient(to right, #000046 , #1CB5E0);
+  color:#C1C5EA;
+  border-radius: 20px;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px;
+  margin-left: 20%;
+  cursor: pointer;
+}
+
+button.del:hover span {
+  display:none
+}
+
+button.del:hover:before {
+  content:"Are you really sure ?";
+}
+
+button.del:hover {
+  background: rgba(0,0,0,0);
+  color: #C1C5EA;
 }
 
 /* inf class group all camps that the user can write their information*/
@@ -91,7 +133,7 @@ input[class="sel"]{
   text-align: center;
   margin-top: 10px;
   margin-bottom: 10px;
-  margin-left: 55px;
+  margin-left: 20%;
 }
 
 input[class="sel"]:hover{
@@ -107,6 +149,8 @@ input[class="inf"]:hover{
 }
 
 
+
+/*
 #delete{
   font-size: 15px;
   position: absolute;
@@ -120,12 +164,4 @@ input[class="inf"]:hover{
 #delete:hover {
   background-color: cyan;
 }
-
-.delete-confirmation {
-  float:right;
-  display: none;
-}
-
-.delete-button:hover .delete-confirmation {
-  display: block;
-}
+*/
