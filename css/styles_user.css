@@ -29,13 +29,13 @@
 }
 .pw_box{
   width: 30%;
-  height: 32%;
+  height: 40%;
   color: #fff;
   background: rgba(0,0,0,0);
   top: 45%;
   left: 75%;
   position: absolute;
-  transform: translate(-50%,-75%);
+  transform: translate(-50%,-100%);
   box-sizing: border-box;
   padding: 20px;
   border-radius: 5%;
