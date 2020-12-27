@@ -1,10 +1,9 @@
 <?php
-function getuserID(){
+function getuserID($username){
   global $conn;
-  $query="SELECT * FROM user WHERE user.username='".$_SESSION['account-username']."'";
-  $idquery=$conn->query($query);
-  $idresult=$idquery->fetchAll();
-  return $idresult[0]['id'];
+  $id=$conn->prepare('SELECT user.id FROM user WHERE user.username = ?');
+  $id->execute(array($username));
+  return $id->fetchColumn();
 }
 function getnumbusers(){
   global $conn;

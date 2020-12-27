@@ -9,10 +9,10 @@
 		exit;
 	}
 	$today = getdata();
-	$userid = getuserID();
+	$userid = getuserID($_SESSION['account-username']);
 	$mapname = getmapname($userid);
 	$locationame = getlocation();
-	$mapid = getmapid(getuserID());
+	$mapid = getmapid($userid);
   $themes = getallthemes($mapid);
 	$reminders=getreminders();
 	$nthemes = getnumbthemes($userid);
@@ -45,7 +45,7 @@
 
 <!-- FAV URLS -->
 		<div class="urls-box">
-			<?php for ($i = 0; $i < $nthemes; $i++ ) {  ?>
+			<?php echo $userid;  for ($i = 0; $i < $nthemes; $i++ ) {  ?>
 
 				 <div class='theme-box<?php echo $i?>'>
 						<h1> <?php echo $themes[$i]['name'] ?> </h1>
@@ -58,7 +58,7 @@
 								<br>
 							<?php } ?>
 					</div>
-					
+
 			<?php } ?>
 		</div>
 

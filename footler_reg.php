@@ -39,13 +39,12 @@
 			$zero = 0;
 			/*INSERT IN USER TABLE*/
 			$create_account -> execute(array($cleanedUsername,$cleanedEmail,sha1($cleanedPassword),$cleanedLocation));
-			$_SESSION['account-created'] = true;
 
 			/*INSERT IN MAP TABLE*/
-			$newid = getnumbusers(); // nao incrementa um pois neste momento o novo user ja esta na tabela com o valor de id mais alto que corresponde ao numero de users
-			$_SESSION['aux']= $newid;
+		 	$newid = getuserID($cleanedUsername);// nao incrementa um pois neste momento o novo user ja esta na tabela com o valor de id mais alto que corresponde ao numero de users
 			$create_map -> execute(array($cleanedSpaceName,$newid,$zero));
 
+			$_SESSION['account-created'] = true;
 			header("Location: index.php");
 		}
 	}
