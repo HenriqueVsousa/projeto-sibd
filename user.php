@@ -29,6 +29,7 @@
     <div class="user_box">
       <h1>CONFIGURATIONS ROOM</h1>
 
+      <!-- USERNAME CHANGE ROOM -->
       <div class="username_box">
         <h1>USERNAME</h1>
 
@@ -57,10 +58,9 @@
               <input type="submit" class="sel" name="submit" value="change my username">
 
         </form>
-
-
       </div>
 
+      <!-- EMAIL CHANGE ROOM -->
       <div class="email_box">
         <h1>EMAIL </h1>
 
@@ -96,6 +96,7 @@
           </form>
       </div>
 
+      <!-- PASSWORD CHANGE ROOM -->
       <div class="pw_box">
         <h1>PASSWORD CHANGE</h1>
 
@@ -127,14 +128,8 @@
     	  </form>
       </div>
 
+      <!-- DELETE ALL AND EVERY -->
       <div class="delete_box">
-
-        <?php
-        if(isset($_SESSION['text'])){
-          echo "delete";
-          unset($_SESSION['text']);
-        }
-        ?>
         <form action="delete_account.php" method="POST">
               <button class="del"> <span>Delete your account</span> </button>
         </form>

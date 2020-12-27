@@ -5,13 +5,10 @@
 	require_once ('footler_auxfunc.php');
 	global $conn;
 	$mapid = getmapid();
-	$nthemes = getnumbthemes($userid);
-
 
 	if( isset($_POST['submit']) ){
 
 		$username = $_SESSION['account-username'];
-
 		$url = trim($_POST['url']);
 
 		//caso tema venha empty procura se theme_default esta stored
@@ -71,20 +68,23 @@
 			header("Location: map.php");
 		}
 
-		//THEME ADD AND URL ADD TO THE THEME
+		//THEME ADD AND URL ADD TO THE THEME IF LIMIT NOT SURPASSED
 		if($nthemes == 9 ){
 			$_SESSION['theme-limit'] = TRUE;
 			$_SESSION['aux'] = $nthemes;
 			header("Location: map.php");
 		}
 		else if( $toAddTheme == TRUE && $toAddSite == TRUE ){
+			//create theme
 			$insert_theme=$conn->prepare('INSERT INTO theme(name,map_id) VALUES(?,?)');
 			$insert_theme->execute(array($theme,$mapid));
 
-			$newnthemes = $nthemes + 1 ;
+			//update number of themes in map
+			$nownthemes = getnumbthemes($mapid);
 			$update_theme_number=$conn->prepare('UPDATE map SET theme_number = ? where map.id = ?');
-			$update_theme_number->execute(array($newnthemes,$mapid));
+			$update_theme_number->execute(array($nownthemes,$mapid));
 
+			//create url into new theme
 			$themeid = getthemeid($theme,$mapid);
 			$insert_url=$conn->prepare('INSERT INTO site(url,theme_id) VALUES(?,?)');
 			$insert_url->execute(array($url,$themeid));

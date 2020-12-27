@@ -31,6 +31,12 @@ function getthemeid($theme_name,$mapid){
   $aix = $aux->fetchAll();
   return $aix[0]['id'];
 }
+function getnumburl($themeid) {
+  global $conn;
+  $aux = $conn->prepare('SELECT COUNT(*) FROM site join theme on site.theme_id=theme.id WHERE theme.id = ? ');
+  $aux->execute(array($themeid));
+  return $aux->fetchColumn();
+}
 function getallurl($themeid) {
   global $conn;
   $aux = $conn->prepare('SELECT site.url FROM site join theme on site.theme_id=theme.id WHERE theme.id = ? ');

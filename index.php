@@ -24,10 +24,10 @@
 				echo "Sucess";
 				unset($_SESSION['account-created']);
 			}
-				if(isset($_SESSION['ERROR'])){
-					echo "Invalid username or password";
-					unset($_SESSION['ERROR']);
-				}
+			if(isset($_SESSION['ERROR'])){
+				echo "Invalid username or password";
+				unset($_SESSION['ERROR']);
+			}
 			?>
 
 		  <form action="footler_login.php" method="POST">

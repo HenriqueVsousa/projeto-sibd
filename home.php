@@ -45,7 +45,7 @@
 
 <!-- FAV URLS -->
 		<div class="urls-box">
-			<?php echo $userid;  for ($i = 0; $i < $nthemes; $i++ ) {  ?>
+			<?php for ($i = 0; $i < $nthemes; $i++ ) {  ?>
 
 				 <div class='theme-box<?php echo $i?>'>
 						<h1> <?php echo $themes[$i]['name'] ?> </h1>
