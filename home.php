@@ -49,7 +49,7 @@
 
 				 <div class='theme-box<?php echo $i?>'>
 
-					 <form action="del_thm.php" method="POST">
+					 <form action="delete_thm.php" method="POST">
 	               <input type="submit" class="close" name="submit" value="delete theme <?php echo $i?>" />
 	         </form>
 
