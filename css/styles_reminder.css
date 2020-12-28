@@ -32,6 +32,7 @@ table, th, td {
   width: 12%;
   height: 7%;
   opacity: 0.3;
+  display:inline-block;
 }
 .close2:hover {
   opacity: 1;
