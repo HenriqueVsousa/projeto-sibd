@@ -21,7 +21,7 @@
 
 			<?php
 			if(isset($_SESSION['account-created'])){
-				echo "Sucess";
+				echo "Success";
 				unset($_SESSION['account-created']);
 			}
 			if(isset($_SESSION['ERROR'])){

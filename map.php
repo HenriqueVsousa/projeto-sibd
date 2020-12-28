@@ -70,7 +70,7 @@
 						echo 'The past cant be reach, insert a future date :)';
 						unset($_SESSION['date-error']);}
 					if( isset($_SESSION['add']) ){
-						echo 'Sucess saving the reminder with the name '.$_SESSION['add-name'].'!';
+						echo 'Success saving the reminder with the name '.$_SESSION['add-name'].'!';
 						unset($_SESSION['add']);}
 					?>
 				</div>
