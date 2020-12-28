@@ -49,5 +49,4 @@ video {
     height: auto;
     z-index: -100;
     transform: translateX(-50%) translateY(-50%);
-    transition-duration: 2s opacity;
 }

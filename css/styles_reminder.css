@@ -1,68 +1,12 @@
-@import url(https://fonts.googleapis.com/css?family=Lato:300,400,700);
-
-ul {
-  width: 300px;
-  margin:0;
-  padding-top: 0;
-  position: absolute;
-  top: 10%;
-}
-
-li {
-  min-width: 200px;
-  float: left;
-  position: relative;
-  padding-top: 100px;
-  width: 18%;
-  background: #fff;
-  margin: 10px 1.5% 0 1.5%;
-  border-left: 1% solid #D4A464;
-  padding: 2%;
-  list-style-type: none;
-  white-space: pre-wrap; /* css-3 */
-  word-wrap: break-word; /* Internet Explorer 5.5+ */
-  white-space : normal;
-  transition: all 200ms ease-in-out;
-}
-
-li:before {
-  position: absolute;
-  top: 0;
-  right: 0;
-  content:'';
-  background: #245;
-  border-right: 20px solid transparent;
-  border-bottom: 20px solid #D4A464;
-}
-
-@media (max-width: 1420px) {
-  li {
-    padding: 1.5%
-    margin: 10px 2% 0 2%;
-    width: 24.8%;
-  }
-}
-@media (max-width: 980px) {
-  li {
-    margin: 10px 2.5% 0 2.5%;
-    width: 40%;
-  }
-}
-@media (max-width: 600px) {
-  li {
-    margin: 10px 2.5% 2px 2.5%;
-    width: 90%;
-  }
-}
-
 .reminder-box{
   background-color:rgba(255,255,255,0.3);
-  transform: translate(100%,80%);
-  width:23%;
+  transform: translate(112%,160%);
+  width:21%;
   height:280px;
   float:right;
   padding:1em;
-  margin-right:3%;
+  margin-left:50px;
+  margin-right:50px;
   border:2px solid black;
   border-radius:5%;
   box-sizing: border-box;
@@ -79,4 +23,31 @@ table, th, td {
 
 .expired{
   color:red;
+}
+
+.close2 {
+  position: absolute;
+  right: 39%;
+  top: 14%;
+  width: 12%;
+  height: 7%;
+  opacity: 0.3;
+}
+.close2:hover {
+  opacity: 1;
+  background-color: cyan;
+}
+.close2:before, .close2:after {
+  position: absolute;
+  left: 15px;
+  content: ' ';
+  height: 33px;
+  width: 2px;
+  background-color: #333;
+}
+.close2:before {
+  transform: rotate(45deg);
+}
+.close2:after {
+  transform: rotate(-45deg);
 }

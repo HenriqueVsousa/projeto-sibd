@@ -152,6 +152,7 @@
 }
 .close:hover {
   opacity: 1;
+  background-color: cyan;
 }
 .close:before, .close:after {
   position: absolute;
@@ -172,6 +173,9 @@
 h1{
   margin-left: 3%;
   font-size: 18px;
+}
+h1:hover{
+  cursor:default;
 }
 a:link {
   color: black;
