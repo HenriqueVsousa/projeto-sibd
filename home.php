@@ -105,7 +105,7 @@
 						}else{
 							$var="valid";
 						}
-						echo "<tr><td>" .$reminders[$i]['name']. "</td><td>" .$reminders[$i]['note']. "</td><td>" .$reminders[$i]['tme']. "</td><td><input type='submit' value='delete reminder'></td></tr>";
+						echo "<tr><td>" .$reminders[$i]['name']. "</td><td>" .$reminders[$i]['note']. "</td><td>" .$reminders[$i]['tme']. "</td><td><input type='submit' class='close2' value='erase'></td></tr>";
 						echo "<input type='hidden' name='sequence' value='$i'>";
 					}
 					$_SESSION['reminders']=$reminders;

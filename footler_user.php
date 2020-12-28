@@ -3,8 +3,8 @@
 	session_start();
 	require_once ('db_connection.php');
 	require_once ('footler_auxfunc.php');
-	$userid = getuserID();
 	$nowusername = $_SESSION['account-username'];
+	$userid = getuserID($nowusername);
 
   switch($_POST['submit']) {
 
@@ -12,6 +12,12 @@
 			//get inputs variables
 			$cleanedUsername = strtolower(strip_tags(trim($_POST['user-new'])));
 			$cleanedPassword = strip_tags(trim($_POST['pw-now']));
+
+			if( !strcmp($_SESSION['account-username'],$cleanedUsername) ){
+				$_SESSION['sameusername']=true;
+				header("Location: user.php");
+				break;
+			}
 
 			//get password from database
 			$pwquery = $conn -> prepare("SELECT * FROM user WHERE lower(username) = ? LIMIT 1");
@@ -23,11 +29,7 @@
 			$usernamequery->execute(array($cleanedUsername));
 			$usernameresult = $usernamequery->fetchAll();
 
-			if( !strcmp($usernameresult[0]['username'],$cleanedUsername) ){
-				$_SESSION['sameusername']=true;
-				header("Location: user.php");
-				break;
-			}
+
 			if( isset($usernameresult[0]['username']) ) {
 				$_SESSION['errornewusername']= true;
 				header("Location: user.php");
@@ -124,6 +126,6 @@
 				header("Location: user.php");
 				break;
 			}
-			
+
 	}
 ?>
